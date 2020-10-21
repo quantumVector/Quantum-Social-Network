@@ -1,0 +1,76 @@
+.block {
+  position: fixed;
+  width: 1238px;
+  z-index: 999;
+  background-color: #16192a;
+}
+
+.block .inner {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  height: 63px;
+  list-style: none;
+}
+
+.block .item {
+  display: flex;
+  align-items: center;
+}
+
+.block .logo {
+  text-align: center;
+  width: 190px;
+  font-weight: bold;
+  color: #cfd2e3;
+  cursor: pointer;
+}
+
+.block .msgIcon {
+  width: auto;
+  height: 13px;
+  cursor: pointer;
+}
+
+.block .notifyBlock {
+  position: relative;
+  margin-left: 35px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.block .notifyIcon {
+  width: auto;
+  height: 17px;
+}
+
+.block .unreadIcon {
+  position: absolute;
+  top: -3px;
+  right: 2px;
+  width: 7px;
+  height: 7px;
+}
+
+.block .profileHeaderBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 35px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.block .name {
+  font-weight: 500;
+  color: #656678;
+}
+
+.block .photo {
+  width: 35px;
+}
+
+.block .arrow {
+  width: 10px;
+}

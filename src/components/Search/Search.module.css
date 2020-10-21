@@ -1,0 +1,30 @@
+
+.block {
+  display: flex;
+  margin-left: 20px;
+  width: 800px;
+}
+
+.icon {
+  height: 15px;
+  width: 15px;
+}
+
+.input {
+  margin-left: 10px;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #cfd2e3;
+  background-color: #16192a;
+}
+
+.input::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  color: #656678;
+}

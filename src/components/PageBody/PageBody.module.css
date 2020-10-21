@@ -1,0 +1,20 @@
+.body {
+  position: absolute;
+  top: 63px;
+  bottom: 0;
+  left: 203px;
+  padding-top: 13px;
+  width: 774px;
+  overflow-y: scroll;
+}
+
+.body::-webkit-scrollbar {
+  width: 0;
+}
+
+.body .narrowColumn {
+  position: absolute;
+  top: 313px;
+  width: 240px;
+  height: auto;
+}
