@@ -7,3 +7,40 @@
   z-index: 997;
   background-color: #16192a;
 }
+
+.block .menu {
+  margin-top: 70px;
+  padding-left: 20px;
+}
+
+.block .menu .title {
+  color: #656678;
+  font-weight: 500;
+}
+
+.block .menu .nav ol {
+  padding: 0;
+  list-style: none;
+  color: #cfd2e3;
+}
+
+.block .menu .nav .item {
+  display: flex;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.block .menu .nav .item .iconCont {
+  text-align: center;
+  width: 23px;
+}
+
+.block .menu .nav .item .icon {
+  width: auto;
+  height: 16px;
+}
+
+.block .menu .nav .item .text {
+  margin-left: 10px;
+  font-size: 12.5px;
+}
