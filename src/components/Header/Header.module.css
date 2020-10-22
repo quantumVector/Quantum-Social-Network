@@ -18,6 +18,11 @@
   align-items: center;
 }
 
+.block .item:nth-child(2) {
+  padding: 0 20px;
+  width: 780px;
+}
+
 .block .logo {
   text-align: center;
   width: 190px;

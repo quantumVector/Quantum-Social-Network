@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from '../Search/Search.jsx';
 import classes from './RightSidebar.module.css';
 import Ashley from '../../assets/profiles/Ashley-mini.png';
 import Liara from '../../assets/profiles/Liara-mini.png';
@@ -10,6 +11,9 @@ import Miranda from '../../assets/profiles/Miranda-mini.png';
 import Tali from '../../assets/profiles/Tali-mini.png';
 import Thane from '../../assets/profiles/Thane-mini.png';
 import Urdnot from '../../assets/profiles/Urdnot-mini.png';
+import settings from '../../assets/settings-icon.png';
+import edite from '../../assets/edite-icon.png';
+import add from '../../assets/add-icon.png';
 
 const RightSidebar = () => {
   return (
@@ -133,6 +137,19 @@ const RightSidebar = () => {
               <div className={classes.online}></div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className={classes.footer}>
+        <Search />
+        <div className={classes.item}>
+          <img src={settings} className={classes.settings} alt="icon"/>
+        </div>
+        <div className={classes.item}>
+          <img src={edite} className={classes.edite} alt="icon"/>
+        </div>
+        <div className={classes.item}>
+          <img src={add} className={classes.add} alt="icon"/>
         </div>
       </div>
     </div>
