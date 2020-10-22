@@ -14,8 +14,9 @@
 }
 
 .block .menu .title {
-  color: #656678;
+  font-size: 13px;
   font-weight: 500;
+  color: #656678;
 }
 
 .block .menu .nav ol {
