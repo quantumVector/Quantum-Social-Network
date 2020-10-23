@@ -1,5 +1,82 @@
 .block {
+  position: relative;
   width: 100%;
   height: 300px;
   background-color: #16192a;
+}
+
+.block .head {
+  position: relative;
+  height: 237px;
+}
+
+.block .head .background {
+  width: 100%;
+  height: 100%;
+  box-shadow:0 0 30px -7px rgb(72, 7, 110);
+}
+
+.block .head .name {
+  position: absolute;
+  left: 145px;
+  bottom: 0;
+  padding: 5px 30px;
+  font-size: 23px;
+  font-weight: bold;
+  color: #cfd2e3;
+  background-color: #16192a91;
+}
+
+.block .head .photoBackground {
+  position: absolute;
+  left: 10px;
+  bottom: -55px;
+  width: 145px;
+  height: 145px;
+  border-radius: 80px;
+  background-color: #16192a;
+}
+
+.block .head .photo {
+  position: absolute;
+  left: 15px;
+  bottom: -50px;
+  width: 135px;
+  z-index: 22;
+}
+
+.block .btns {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 63px;
+  z-index: 11;
+  background-color: #16192a;
+}
+
+.block .btns .container {
+  display: flex;
+  padding-left: 190px;
+}
+
+.block .btns .container .item {
+  padding: 8.5px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.block .btns .container .item:hover {
+  background-color: #1d2031;
+  border-bottom: 3px solid #2783e6;
+}
+
+.block .btns .container .item .label {
+  font-weight: 500;
+  color: #656678;
+}
+
+.block .btns .container .item .count {
+  font-weight: 500;
+  color: #656678;
 }
