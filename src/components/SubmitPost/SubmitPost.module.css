@@ -2,6 +2,116 @@
   float: right;
   margin-top: 13px;
   width: 518px;
-  height: 130px;
+  height: 160px;
   background-color: #16192a;
+}
+
+
+.block .actionsBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  height: 26px;
+}
+
+.block .actionsBox .actions {
+  display: flex;
+}
+
+.block .actionsBox .actions .item {
+  margin-right: 15px;
+  padding: 5px 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #cfd2e3;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #1d2031;
+}
+
+.block .actionsBox .emoji {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.block .postBox {
+  display: flex;
+  height: auto;
+  padding: 0 15px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #1d2031;
+}
+
+.block .postBox .userPhoto {
+  width: 40px;
+  height: 40px;
+}
+
+.block .postBox textarea {
+  margin-left: 10px;
+  padding-top: 10px;
+  padding-right: 15px;
+  width: 100%;
+  font-size: 12.5px;
+  border: none;
+  resize: none;
+  color: #cfd2e3;
+  background-color: #16192a;
+}
+
+.block .postBox textarea::-webkit-scrollbar {
+  width: 0;
+}
+
+.block .postBox textarea::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  color: #656678;
+}
+
+.block .postBox textarea:focus {
+  outline: none;
+}
+
+.block .mediaBox {
+  display: flex;
+  margin-top: 7px;
+  justify-content: space-between;
+}
+
+.block .mediaBox .media {
+  display: flex;
+}
+
+.block .mediaBox .media .item {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #cfd2e3;
+  cursor: pointer;
+}
+
+.block .mediaBox .media .item .icon {
+  height: 15px;
+  margin-right: 5px;
+}
+
+.block .mediaBox .submit {
+  margin-right: 15px;
+  padding: 5px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #cfd2e3;
+  background-color: #2783e6;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow:0 0 14px 2px#2783e6;;
 }
