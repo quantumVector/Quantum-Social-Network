@@ -1,7 +1,110 @@
 .block {
   float: right;
-  margin-top: 13px;
+  margin: 13px 0;
   width: 518px;
-  height: 420px;
+  height: 440px;
   background-color: #16192a;
+}
+
+.block .postHeader {
+  display: flex;
+  padding: 15px;
+}
+
+.block .postHeader .userPhoto {
+  width: 60px;
+  height: 60px;
+}
+
+.block .postHeader .info {
+  padding-top: 11px;
+  padding-left: 15px;
+  width: 100%;
+}
+
+.block .postHeader .info .author {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #cfd2e3;
+}
+
+.block .postHeader .info .author .name {
+  font-weight: bold;
+}
+
+.block .postHeader .info .author .feedback {
+  color: #3b6fa8;
+  cursor: pointer;
+}
+
+.block .postHeader .info .date {
+  font-size: 12px;
+  font-weight: 500;
+  color: #656678;
+}
+
+.block .postHeader .actions {
+  padding-top: 5px;
+}
+
+.block .postHeader .icon {
+  width: 20px;
+  cursor: pointer;
+}
+
+.block .text {
+  padding: 0 15px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #cfd2e3;
+}
+
+.block .content {
+  display: grid;
+  grid-template-areas:
+            "a b"
+            "a c";
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  gap: 5px;
+  padding: 15px;
+}
+
+.block .content .item {
+  cursor: pointer;
+}
+
+.block .content .item:nth-child(1) {
+  grid-area: a;
+  width: 262px;
+}
+
+.block .content .item:nth-child(2) {
+  grid-area: b;
+  width: 220px;
+}
+
+.block .content .item:nth-child(3) {
+  grid-area: c;
+  width: 220px;
+}
+
+.block .btns {
+  display: flex;
+}
+
+.block .btns .item {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #cfd2e3;
+  cursor: pointer;
+}
+
+.block .btns .item .icon {
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
 }
