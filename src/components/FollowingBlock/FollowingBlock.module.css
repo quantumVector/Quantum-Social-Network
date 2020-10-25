@@ -1,6 +1,47 @@
 .block {
   margin-top: 13px;
   width: 100%;
-  height: 230px;
+  height: 207px;
   background-color: #16192a;
+}
+
+.block .blockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.block .blockHeader .title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #656678;
+}
+
+.block .blockHeader .actions {
+  margin-top: 5px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.block .items {
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
+
+.block .items .item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.block .items .item .icon {
+  width: 35px;
+}
+
+.block .items .item .info {
+  margin-left: 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #cfd2e3;
 }
