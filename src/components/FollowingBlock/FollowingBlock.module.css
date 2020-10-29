@@ -25,23 +25,5 @@
 }
 
 .block .items {
-  margin-bottom: 15px;
   padding-left: 15px;
-}
-
-.block .items .item {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.block .items .item .icon {
-  width: 35px;
-}
-
-.block .items .item .info {
-  margin-left: 10px;
-  font-size: 12.5px;
-  font-weight: 500;
-  color: #cfd2e3;
 }

@@ -1,0 +1,17 @@
+.item {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item .icon {
+  width: 35px;
+}
+
+.item .info {
+  margin-left: 15px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #cfd2e3;
+}
