@@ -42,39 +42,6 @@
   margin-top: 20px;
 }
 
-.block .friends .items .item {
-  display: flex;
-  margin-bottom: 15px;
-  cursor: pointer;
-}
-
-.block .friends .items .item .profileIcon {
-  width: 35px;
-  border-radius: 30px;
-}
-
-.block .friends .items .item .personInfo {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 13px;
-}
-
-.block .friends .items .item .personInfo .name {
-  font-size: 12.5px;
-  font-weight: 500;
-  color: #cfd2e3;
-}
-
-.block .friends .items .item .personInfo .online {
-  margin-top: 3px;
-  width: 6px;
-  height: 6px;
-  border-radius: 30px;
-  background-color: #85cb1d;
-}
-
 .block .footer {
   display: flex;
   align-items: center;
