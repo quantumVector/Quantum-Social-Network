@@ -1,0 +1,30 @@
+
+.item {
+  display: flex;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.item .storiesIcon {
+  width: 35px;
+  border: 3px solid #e7b957;
+  border-radius: 30px;
+}
+
+.item .personInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.item .personInfo .name {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #cfd2e3;
+}
+
+.item .personInfo .time {
+  font-size: 12px;
+  color: #656678;
+}

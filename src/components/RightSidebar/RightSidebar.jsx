@@ -1,4 +1,5 @@
 import React from 'react';
+import StoriesPreview from '../StoriesPreview/StoriesPreview.jsx';
 import Search from '../Search/Search.jsx';
 import classes from './RightSidebar.module.css';
 import Ashley from '../../assets/profiles/Ashley-mini.png';
@@ -21,37 +22,10 @@ const RightSidebar = () => {
       <div className={classes.stories}>
         <div className={classes.title}>STORIES</div>
         <div className={classes.items}>
-          <div className={classes.item}>
-            <img src={Ashley} className={classes.storiesIcon} alt='icon'></img>
-            <div className={classes.personInfo}>
-              <div className={classes.name}>Ashley Williams</div>
-              <div className={classes.time}>29 minutes ago</div>
-            </div>
-          </div>
-
-          <div className={classes.item}>
-            <img src={Liara} className={classes.storiesIcon} alt='icon'></img>
-            <div className={classes.personInfo}>
-              <div className={classes.name}>Liara T'Soni</div>
-              <div className={classes.time}>3 hours ago</div>
-            </div>
-          </div>
-
-          <div className={classes.item}>
-            <img src={Mordin} className={classes.storiesIcon} alt='icon'></img>
-            <div className={classes.personInfo}>
-              <div className={classes.name}>Mordin Solus</div>
-              <div className={classes.time}>9 hours ago</div>
-            </div>
-          </div>
-
-          <div className={classes.item}>
-            <img src={James} className={classes.storiesIcon} alt='icon'></img>
-            <div className={classes.personInfo}>
-              <div className={classes.name}>James Vega</div>
-              <div className={classes.time}>18 hours ago</div>
-            </div>
-          </div>
+          <StoriesPreview profilePhoto={Ashley} name='Ashley Williams' time='29 minutes ago' />
+          <StoriesPreview profilePhoto={Liara} name="Liara T'Soni" time='3 hours ago' />
+          <StoriesPreview profilePhoto={Mordin} name='Mordin Solus' time='9 hours ago' />
+          <StoriesPreview profilePhoto={James} name='James Vega' time='18 hours ago' />
         </div>
       </div>
 
