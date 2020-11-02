@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './LeftSidebar.module.css';
+import MenuItem from '../MenuItem/MenuItem.jsx';
 import home from '../../assets/home-icon.png';
 import news from '../../assets/news-icon.png';
 import friends from '../../assets/friends-icon.png';
@@ -16,54 +17,14 @@ const LeftSidebar = () => {
         <div className={classes.title}>MENU</div>
         <nav className={classes.nav}>
           <ol>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={home} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>Home</div>
-            </li>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={news} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>News</div>
-            </li>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={friends} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>Friends</div>
-            </li>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={communities} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>Communities</div>
-            </li>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={photos} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>Photos</div>
-            </li>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={videos} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>Videos</div>
-            </li>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={files} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>Files</div>
-            </li>
-            <li className={classes.item}>
-              <div className={classes.iconCont}>
-                <img src={events} className={classes.icon} alt='icon'></img>
-              </div>
-              <div className={classes.text}>Events</div>
-            </li>
+            <MenuItem icon={home} label='Home' />
+            <MenuItem icon={news} label='News' />
+            <MenuItem icon={friends} label='Friends' />
+            <MenuItem icon={communities} label='Communities' />
+            <MenuItem icon={photos} label='Photos' />
+            <MenuItem icon={videos} label='Videos' />
+            <MenuItem icon={files} label='Files' />
+            <MenuItem icon={events} label='Events' />
           </ol>
         </nav>
       </div>

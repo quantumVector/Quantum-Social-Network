@@ -1,0 +1,20 @@
+.item {
+  display: flex;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.item .iconCont {
+  text-align: center;
+  width: 23px;
+}
+
+.item .icon {
+  width: auto;
+  height: 16px;
+}
+
+.item .text {
+  margin-left: 10px;
+  font-size: 12.5px;
+}
