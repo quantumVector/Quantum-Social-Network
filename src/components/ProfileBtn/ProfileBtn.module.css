@@ -1,0 +1,20 @@
+.item {
+  padding: 8.5px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #1d2031;
+  border-bottom: 3px solid #2783e6;
+}
+
+.item .label {
+  font-weight: 500;
+  color: #656678;
+}
+
+.item .count {
+  font-weight: 500;
+  color: #656678;
+}

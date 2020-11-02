@@ -59,24 +59,3 @@
   display: flex;
   padding-left: 190px;
 }
-
-.block .btns .container .item {
-  padding: 8.5px 20px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.block .btns .container .item:hover {
-  background-color: #1d2031;
-  border-bottom: 3px solid #2783e6;
-}
-
-.block .btns .container .item .label {
-  font-weight: 500;
-  color: #656678;
-}
-
-.block .btns .container .item .count {
-  font-weight: 500;
-  color: #656678;
-}

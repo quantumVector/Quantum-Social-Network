@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './ProfileTop.module.css';
+import ProfileBtn from '../ProfileBtn/ProfileBtn.jsx';
 import background from '../../assets/profile-head.png';
 import photo from '../../assets/profiles/Shepard-mini.png';
 
@@ -14,25 +15,10 @@ const ProfileTop = () => {
       </div>
       <div className={classes.btns}>
         <div className={classes.container}>
-          <div className={classes.item}>
-            <div className={classes.label}>Friends</div>
-            <div className={classes.count}>256</div>
-          </div>
-
-          <div className={classes.item}>
-            <div className={classes.label}>Followers</div>
-            <div className={classes.count}>1,080</div>
-          </div>
-
-          <div className={classes.item}>
-            <div className={classes.label}>Photos</div>
-            <div className={classes.count}>512</div>
-          </div>
-
-          <div className={classes.item}>
-            <div className={classes.label}>Videos</div>
-            <div className={classes.count}>64</div>
-          </div>
+          <ProfileBtn label='Friends' count='256' />
+          <ProfileBtn label='Followes' count='1,080' />
+          <ProfileBtn label='Photos' count='512' />
+          <ProfileBtn label='Videos' count='64' />
         </div>
       </div>
     </div>
