@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './LeftSidebar.module.css';
+import classes from './MainMenu.module.css';
 import MenuItem from '../MenuItem/MenuItem.jsx';
 import home from '../../assets/home-icon.png';
 import news from '../../assets/news-icon.png';
@@ -10,7 +10,7 @@ import videos from '../../assets/videos-icon.png';
 import files from '../../assets/files-icon.png';
 import events from '../../assets/events-icon.png';
 
-const LeftSidebar = () => {
+const MainMenu = () => {
   return (
     <div className={classes.block}>
       <div className={classes.menu}>
@@ -32,4 +32,4 @@ const LeftSidebar = () => {
   )
 }
 
-export default LeftSidebar;
+export default MainMenu;
