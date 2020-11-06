@@ -1,0 +1,29 @@
+.homePage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1046px;
+}
+
+.homePage .scrollBlock {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 13px;
+  padding-top: 13px;
+  width: 773px;
+  overflow-y: scroll;
+}
+
+.homePage .scrollBlock::-webkit-scrollbar {
+  width: 0;
+}
+
+.homePage .scrollBlock .narrowColumn {
+  position: absolute;
+  top: 313px;
+  width: 240px;
+  height: auto;
+}

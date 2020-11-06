@@ -5,3 +5,13 @@
   margin: 0 auto;
   background-color: #1d2031;
 }
+
+.body {
+  position: absolute;
+  top: 63px;
+  bottom: 0;
+  left: 190px;
+  padding: 0 13px;
+  padding-top: 13px;
+  width: 1021px;
+}
