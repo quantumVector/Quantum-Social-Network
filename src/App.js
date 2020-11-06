@@ -12,8 +12,8 @@ function App() {
       <Header />
       <LeftSidebar />
       <div className="body">
-        {/* <HomePage /> */}
-        <DialogsPage />
+        <HomePage />
+        {/* <DialogsPage /> */}
       </div>
     </div>
   );

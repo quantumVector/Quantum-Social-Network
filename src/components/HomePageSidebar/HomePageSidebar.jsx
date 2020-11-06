@@ -2,7 +2,7 @@ import React from 'react';
 import StoriesPreview from '../StoriesPreview/StoriesPreview.jsx';
 import FriendsOnline from '../FriendsOnline/FriendsOnline.jsx';
 import Search from '../Search/Search.jsx';
-import classes from './RightSidebar.module.css';
+import classes from './HomePageSidebar.module.css';
 import Ashley from '../../assets/profiles/Ashley-mini.png';
 import Liara from '../../assets/profiles/Liara-mini.png';
 import Mordin from '../../assets/profiles/Mordin-mini.png';
@@ -17,7 +17,7 @@ import settings from '../../assets/settings-icon.png';
 import edite from '../../assets/edite-icon.png';
 import add from '../../assets/add-icon.png';
 
-const RightSidebar = () => {
+const HomePageSidebar = () => {
   return (
     <div className={classes.block}>
       <div className={classes.stories}>
@@ -62,4 +62,4 @@ const RightSidebar = () => {
   )
 }
 
-export default RightSidebar;
+export default HomePageSidebar;

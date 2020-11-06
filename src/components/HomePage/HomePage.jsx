@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './HomePage.module.css';
-import RightSidebar from '../RightSidebar/RightSidebar.jsx';
+import HomePageSidebar from '../HomePageSidebar/HomePageSidebar.jsx';
 import ProfileTop from '../ProfileTop/ProfileTop.jsx';
 import SubmitPost from '../SubmitPost/SubmitPost.jsx';
 import ProfileInfo from '../ProfileInfo/ProfileInfo.jsx';
@@ -22,7 +22,7 @@ const HomePage = () => {
         <Post />
       </div>
       <div className={classes.rightSidebar}>
-        <RightSidebar />
+        <HomePageSidebar />
       </div>
     </div>
   )
