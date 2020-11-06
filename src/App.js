@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header.jsx';
 import LeftSidebar from './components/LeftSidebar/LeftSidebar.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
-import DialogsLeftBlock from './components/DialogsLeftBlock/DialogsLeftBlock.jsx';
+import DialogsPage from './components/DialogsPage/DialogsPage.jsx';
 
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       <Header />
       <LeftSidebar />
       <div className="body">
-        <HomePage />
-        {/* <DialogsLeftBlock /> */}
+        {/* <HomePage /> */}
+        <DialogsPage />
       </div>
     </div>
   );
