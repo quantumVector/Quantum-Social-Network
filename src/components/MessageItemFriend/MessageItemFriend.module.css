@@ -1,0 +1,32 @@
+.item {
+  max-width: 350px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.item .info {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.item .info img {
+  margin-right: 13px;
+  width: 50px;
+}
+
+.item .info .msg {
+  padding: 12px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #cfd2e3;
+  border-radius: 13px;
+  background-color: #16192a;
+}
+
+.item .time {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: right;
+  color: #656678;
+}

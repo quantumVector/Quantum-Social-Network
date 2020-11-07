@@ -1,0 +1,91 @@
+.chatBody {
+  display: inline-flex;
+  flex-direction: column;
+  width: 465px;
+  height: 100%;
+}
+
+.chatBody .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  background-color: #16192a;
+}
+
+.chatBody .header .userInfo {
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+}
+
+.chatBody .header .userInfo .name {
+  margin-right: 13px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #cfd2e3;
+}
+
+.chatBody .header .userInfo .status {
+  margin-right: 20px;
+  width: 6px;
+  height: 6px;
+  border-radius: 30px;
+  background-color: #85cb1d;
+}
+
+.chatBody .header .userInfo .time {
+  font-size: 12px;
+  font-weight: 500;
+  color: #656678;
+}
+
+.chatBody .header img {
+  margin-right: 13px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.chatBody .chat {
+  padding: 13px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.chatBody .chat::-webkit-scrollbar {
+  width: 0;
+}
+
+.chatBody .chatInput {
+  display: flex;
+  align-items: center;
+  padding: 5px 0 5px 13px;
+  height: 30px;
+  background-color: #16192a;
+}
+
+.chatBody .chatInput .input {
+  margin-right: 13px;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #cfd2e3;
+  background-color: #16192a;
+}
+
+.chatBody .chatInput .input::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  color: #656678;
+}
+
+.chatBody .chatInput img {
+  margin-right: 13px;
+  height: 20px;
+  cursor: pointer;
+}
