@@ -1,0 +1,34 @@
+.dialogsWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dialogsWrapper .title {
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+  height: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #656678;
+  background-color: #16192a;
+}
+
+.dialogsWrapper .dialogsBlock {
+  padding: 13px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.dialogsWrapper .dialogsBlock::-webkit-scrollbar {
+  width: 0;
+}
+
+.dialogsWrapper .search {
+  display: flex;
+  align-items: center;
+  padding: 5px 13px;
+  height: 30px;
+  background-color: #16192a;
+}

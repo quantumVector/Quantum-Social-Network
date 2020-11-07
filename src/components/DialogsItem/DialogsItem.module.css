@@ -1,0 +1,45 @@
+.dialogsItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 13px;
+  padding: 0 13px;
+  width: 300px;
+  height: 100px;
+  cursor: pointer;
+  background-color: #16192a;
+}
+
+.dialogsItem img {
+  width: 50px;
+  height: 50px;
+}
+
+.dialogsItem .info {
+  margin: 0 13px;
+  width: 200px;
+}
+
+.dialogsItem .info .name {
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #cfd2e3;
+}
+
+.dialogsItem .info .msg {
+  font-size: 12px;
+  color: #cfd2e3;
+}
+
+.dialogsItem .count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 60px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #cfd2e3;
+  background-color: #2783e6;
+}
