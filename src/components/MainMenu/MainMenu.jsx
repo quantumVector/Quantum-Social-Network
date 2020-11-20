@@ -17,7 +17,7 @@ const MainMenu = () => {
         <div className={classes.title}>MENU</div>
         <nav className={classes.nav}>
           <ol>
-            <MenuItem icon={home} label='Home' />
+            <MenuItem icon={home} label='Home' href='/home' />
             <MenuItem icon={news} label='News' />
             <MenuItem icon={friends} label='Friends' />
             <MenuItem icon={communities} label='Communities' />

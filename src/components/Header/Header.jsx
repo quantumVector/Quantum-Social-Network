@@ -18,7 +18,9 @@ const Header = () => {
           <Search />
         </li>
         <li className={classes.item}>
-          <img src={msg} className={classes.msgIcon} alt='icon'></img>
+          <a href='/dialogs'>
+            <img src={msg} className={classes.msgIcon} alt='icon'></img>
+          </a>
         </li>
         <li className={classes.item}>
           <div className={classes.notifyBlock}>
