@@ -18,13 +18,13 @@ const MainMenu = () => {
         <nav className={classes.nav}>
           <ol>
             <MenuItem icon={home} label='Home' href='/home' />
-            <MenuItem icon={news} label='News' />
-            <MenuItem icon={friends} label='Friends' />
-            <MenuItem icon={communities} label='Communities' />
-            <MenuItem icon={photos} label='Photos' />
-            <MenuItem icon={videos} label='Videos' />
-            <MenuItem icon={files} label='Files' />
-            <MenuItem icon={events} label='Events' />
+            <MenuItem icon={news} label='News' href='/news' />
+            <MenuItem icon={friends} label='Friends' href='/friends' />
+            <MenuItem icon={communities} label='Communities' href='/communities' />
+            <MenuItem icon={photos} label='Photos' href='/photos' />
+            <MenuItem icon={videos} label='Videos' href='/videos' />
+            <MenuItem icon={files} label='Files' href='/files' />
+            <MenuItem icon={events} label='Events' href='/events' />
           </ol>
         </nav>
       </div>
