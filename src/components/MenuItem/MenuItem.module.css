@@ -1,20 +1,30 @@
-.item {
+.item a {
   display: flex;
   margin-bottom: 25px;
+  text-decoration: none;
+  color: #cfd2e3;
   cursor: pointer;
 }
 
-.item .iconCont {
+.item a:hover {
+  color: #2783e6;
+}
+
+.item a.active {
+  color: #3b6fa8;
+}
+
+.item a .iconCont {
   text-align: center;
   width: 23px;
 }
 
-.item .icon {
+.item a .icon {
   width: auto;
   height: 16px;
 }
 
-.item .text {
+.item a .text {
   margin-left: 10px;
   font-size: 12.5px;
 }
