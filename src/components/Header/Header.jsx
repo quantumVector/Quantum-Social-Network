@@ -6,6 +6,7 @@ import notify from '../../assets/notify-icon.png';
 import photo from '../../assets/profiles/Shepard-mini.png';
 import arrow from '../../assets/arrow-icon.png';
 import unread from '../../assets/unread-icon.png';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -18,9 +19,9 @@ const Header = () => {
           <Search />
         </li>
         <li className={classes.item}>
-          <a href='/dialogs'>
+          <NavLink to='/dialogs'>
             <img src={msg} className={classes.msgIcon} alt='icon'></img>
-          </a>
+          </NavLink>
         </li>
         <li className={classes.item}>
           <div className={classes.notifyBlock}>
