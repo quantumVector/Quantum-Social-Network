@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.item .icon {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+}
+
+.item .icon img {
+  width: auto;
+  height: 17px;
+}
+
+.item .labelBlock {
+  display: flex;
+  margin-left: 15px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #656678;
+}
+
+.item .labelBlock .count {
+  margin-right: 5px;
+}

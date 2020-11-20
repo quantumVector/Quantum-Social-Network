@@ -1,0 +1,62 @@
+.userInfo {
+  width: 227px;
+  background-color: #16192a;
+}
+
+.userInfo .title {
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+  height: 25px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #656678;
+}
+
+.userInfo .userBlock .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userInfo .userBlock .wrapper .photo {
+  display: block;
+  margin-top: 30px;
+  width: 100px;
+}
+
+.userInfo .userBlock .wrapper .userName {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #cfd2e3;
+}
+
+.userInfo .userBlock .wrapper .time {
+  margin-bottom: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2783e6;
+}
+
+.userInfo .attacment .wrapper {
+  padding-left: 13px;
+  padding-top: 30px;
+}
+
+.userInfo .actions {
+  margin-top: 30px;
+}
+
+.userInfo .actions .wrapper {
+  padding-top: 15px;
+  padding-left: 13px;
+}
+
+.userInfo .actions .wrapper .item {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #656678;
+  cursor: pointer;
+}
