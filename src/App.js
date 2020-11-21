@@ -22,7 +22,7 @@ function App(props) {
         <MainMenu />
         <div className="body">
           <Route path='/home' render={ () => <HomePage users={props.users} /> } />
-          <Route path='/dialogs' component={DialogsPage} />
+          <Route path='/dialogs' render={ () => <DialogsPage users={props.users} /> } />
           <Route path='/news' component={NewsPage} />
           <Route path='/friends' component={FriendsPage} />
           <Route path='/communities' component={CommunitiesPage} />
