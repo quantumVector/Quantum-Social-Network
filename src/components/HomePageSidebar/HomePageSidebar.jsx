@@ -17,16 +17,19 @@ import settings from '../../assets/settings-icon.png';
 import edite from '../../assets/edite-icon.png';
 import add from '../../assets/add-icon.png';
 
-const HomePageSidebar = () => {
+const HomePageSidebar = (props) => {
+  const stories = props.users.map( (user) => {
+    if (user.story) return <StoriesPreview profilePhoto={user.photo} name={user.name} time={user.storyCreated} />
+
+    return false;
+  });
+
   return (
     <div className={classes.block}>
       <div className={classes.stories}>
         <div className={classes.title}>STORIES</div>
         <div className={classes.items}>
-          <StoriesPreview profilePhoto={Ashley} name='Ashley Williams' time='29 minutes ago' />
-          <StoriesPreview profilePhoto={Liara} name="Liara T'Soni" time='3 hours ago' />
-          <StoriesPreview profilePhoto={Mordin} name='Mordin Solus' time='9 hours ago' />
-          <StoriesPreview profilePhoto={James} name='James Vega' time='18 hours ago' />
+          { stories }
         </div>
       </div>
 

@@ -14,14 +14,14 @@ import FilesPage from './components/FilesPage/FilesPage.jsx';
 import EventsPage from './components/EventsPage/EventsPage.jsx';
 
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <MainMenu />
         <div className="body">
-          <Route path='/home' component={HomePage} />
+          <Route path='/home' render={ () => <HomePage users={props.users} /> } />
           <Route path='/dialogs' component={DialogsPage} />
           <Route path='/news' component={NewsPage} />
           <Route path='/friends' component={FriendsPage} />

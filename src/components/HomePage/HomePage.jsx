@@ -8,7 +8,7 @@ import EventBlock from '../EventBlock/EventBlock.jsx';
 import FollowingBlock from '../FollowingBlock/FollowingBlock.jsx';
 import Post from '../Post/Post.jsx';
 
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>
@@ -22,7 +22,7 @@ const HomePage = () => {
         <Post />
       </div>
       <div className={classes.rightSidebar}>
-        <HomePageSidebar />
+        <HomePageSidebar users={props.users} />
       </div>
     </div>
   )
