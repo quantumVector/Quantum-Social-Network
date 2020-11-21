@@ -16,7 +16,7 @@ const HomePage = (props) => {
         <div className={classes.narrowColumn}>
           <ProfileInfo />
           <EventBlock />
-          <FollowingBlock />
+          <FollowingBlock following={props.following} />
         </div>
         <SubmitPost />
         <Post />

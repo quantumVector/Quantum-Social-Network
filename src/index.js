@@ -14,6 +14,10 @@ import photoMordin from './assets/profiles/Mordin-mini.png';
 import photoTali from './assets/profiles/Tali-mini.png';
 import photoThane from './assets/profiles/Thane-mini.png';
 import photoUrdnot from './assets/profiles/Urdnot-mini.png';
+import photoSpectres from './assets/spectres-icon.png';
+import photoAlliance from './assets/alliance-icon.png';
+import photoNews from './assets/galaxy-news-icon.png';
+
 
 const usersData = [
   {
@@ -78,9 +82,24 @@ const usersData = [
   },
 ];
 
+const followingData = [
+  {
+    name: 'Organization SPECTRES',
+    photo: photoSpectres,
+  },
+  {
+    name: 'Alliance Special Forces',
+    photo: photoAlliance,
+  },
+  {
+    name: 'Galactic News',
+    photo: photoNews,
+  },
+];
+
 ReactDOM.render(
   <React.StrictMode>
-    <App users={usersData} />
+    <App users={usersData} following={followingData} />
   </React.StrictMode>,
   document.getElementById('root')
 );

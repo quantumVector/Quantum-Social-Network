@@ -2,12 +2,12 @@ import React from 'react';
 import classes from './FollowingBlock.module.css';
 import Following from '../Following/Following';
 import actions from '../../assets/post-actions-icon.png';
-import spectres from '../../assets/spectres-icon.png';
-import alliance from '../../assets/alliance-icon.png';
-import news from '../../assets/galaxy-news-icon.png';
 
 
-const FollowingBlock = () => {
+const FollowingBlock = (props) => {
+  const following = props.following.map( f => {
+    return <Following photo={f.photo} name={f.name} />
+  });
   return (
     <div className={classes.block}>
       <div className={classes.blockHeader}>
@@ -15,9 +15,7 @@ const FollowingBlock = () => {
         <img src={actions} className={classes.actions} alt="icon"></img>
       </div>
       <div className={classes.items}>
-        <Following photo={spectres} name='Organization SPECTRES' />
-        <Following photo={alliance} name='Alliance Special Forces' />
-        <Following photo={news} name='Galactic News' />
+        { following }
       </div>
     </div >
   )
