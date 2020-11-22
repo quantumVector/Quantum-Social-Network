@@ -13,11 +13,23 @@ import photoSpectres from '../assets/spectres-icon.png';
 import photoAlliance from '../assets/alliance-icon.png';
 import photoNews from '../assets/galaxy-news-icon.png';
 import photoEvent from '../assets/event.jpg';
+import photo1Post1 from '../assets/postPhotos/photo1.jpg';
+import photo2Post1 from '../assets/postPhotos/photo2.jpg';
+import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 
 const state = {
   profile: {
     name: 'John Shepard',
     photo: photoShepard,
+  },
+
+  posts: {
+    time: '6 hours ago',
+    text: 'Individuals forged in the fire of service and battle.',
+    content: [photo1Post1, photo2Post1, photo3Post1],
+    likes: '87',
+    comments: '20',
+    shared: '13',
   },
 
   users: [

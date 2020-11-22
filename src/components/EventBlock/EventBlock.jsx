@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './EventBlock.module.css';
 
 const EventBlock = (props) => {
-  console.log(props)
   return (
     <div className={classes.block}>
       <div className={classes.pic}>

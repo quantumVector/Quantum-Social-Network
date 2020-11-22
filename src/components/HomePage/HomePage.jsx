@@ -19,7 +19,7 @@ const HomePage = (props) => {
           <FollowingBlock following={props.state.following} />
         </div>
         <SubmitPost profile={props.state.profile} />
-        <Post />
+        <Post state={props.state} />
       </div>
       <div className={classes.rightSidebar}>
         <HomePageSidebar users={props.state.users} />
