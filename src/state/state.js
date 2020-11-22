@@ -12,6 +12,7 @@ import photoUrdnot from '../assets/profiles/Urdnot-mini.png';
 import photoSpectres from '../assets/spectres-icon.png';
 import photoAlliance from '../assets/alliance-icon.png';
 import photoNews from '../assets/galaxy-news-icon.png';
+import photoEvent from '../assets/event.jpg';
 
 const state = {
   profile: {
@@ -96,6 +97,14 @@ const state = {
       photo: photoNews,
     },
   ],
+
+  events: {
+    label: 'Travel to the Citadel for supplies.',
+    photo: photoEvent,
+    fullTime: '01st Jan, 2186 07:00AM',
+    day: '01',
+    month: 'Jan',
+  },
 }
 
 export default state;

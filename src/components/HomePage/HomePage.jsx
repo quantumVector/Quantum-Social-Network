@@ -15,7 +15,7 @@ const HomePage = (props) => {
         <ProfileTop profile={props.state.profile} />
         <div className={classes.narrowColumn}>
           <ProfileInfo />
-          <EventBlock />
+          <EventBlock events={props.state.events} />
           <FollowingBlock following={props.state.following} />
         </div>
         <SubmitPost />
