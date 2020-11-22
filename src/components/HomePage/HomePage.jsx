@@ -12,7 +12,7 @@ const HomePage = (props) => {
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>
-        <ProfileTop />
+        <ProfileTop profile={props.state.profile} />
         <div className={classes.narrowColumn}>
           <ProfileInfo />
           <EventBlock />

@@ -1,3 +1,4 @@
+import photoShepard from '../assets/profiles/Shepard-mini.png';
 import photoAnderson from '../assets/profiles/Anderson-mini.png';
 import photoAshley from '../assets/profiles/Ashley-mini.png';
 import photoGarrus from '../assets/profiles/Garrus-mini.png';
@@ -13,6 +14,11 @@ import photoAlliance from '../assets/alliance-icon.png';
 import photoNews from '../assets/galaxy-news-icon.png';
 
 const state = {
+  profile: {
+    name: 'John Shepard',
+    photo: photoShepard,
+  },
+
   users: [
     {
       name: 'David Anderson',

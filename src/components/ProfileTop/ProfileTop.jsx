@@ -2,16 +2,15 @@ import React from 'react';
 import classes from './ProfileTop.module.css';
 import ProfileBtn from '../ProfileBtn/ProfileBtn.jsx';
 import background from '../../assets/profile-head.png';
-import photo from '../../assets/profiles/Shepard-mini.png';
 
-const ProfileTop = () => {
+const ProfileTop = (props) => {
   return (
     <div className={classes.block}>
       <div className={classes.head}>
-        <img src={background} className={classes.background} alt='background'/>
-        <div className={classes.name}>John Shepard</div>
+        <img src={background} className={classes.background} alt='background' />
+        <div className={classes.name}>{props.profile.name}</div>
         <div className={classes.photoBackground}></div>
-        <img src={photo} className={classes.photo} alt='icon'/>
+        <img src={props.profile.photo} className={classes.photo} alt='icon' />
       </div>
       <div className={classes.btns}>
         <div className={classes.container}>
