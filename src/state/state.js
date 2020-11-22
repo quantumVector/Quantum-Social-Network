@@ -32,6 +32,8 @@ const state = {
     shared: '13',
   },
 
+  friendsOnline: '10',
+
   users: [
     {
       name: 'David Anderson',

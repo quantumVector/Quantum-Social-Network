@@ -22,7 +22,7 @@ const HomePage = (props) => {
         <Post state={props.state} />
       </div>
       <div className={classes.rightSidebar}>
-        <HomePageSidebar users={props.state.users} />
+        <HomePageSidebar state={props.state} />
       </div>
     </div>
   )

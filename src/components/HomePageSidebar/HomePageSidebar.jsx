@@ -8,13 +8,13 @@ import edite from '../../assets/edite-icon.png';
 import add from '../../assets/add-icon.png';
 
 const HomePageSidebar = (props) => {
-  const stories = props.users.map( user => {
+  const stories = props.state.users.map( user => {
     if (user.story) return <StoriesPreview profilePhoto={user.photo} name={user.name} time={user.storyCreated} />
 
     return false;
   });
 
-  const friends = props.users.map( user => {
+  const friends = props.state.users.map( user => {
     return <FriendsOnline profilePhoto={user.photo} name={user.name} />
   });
 
@@ -28,7 +28,7 @@ const HomePageSidebar = (props) => {
       </div>
 
       <div className={classes.friends}>
-        <div className={classes.title}>10 FRIENDS ONLINE</div>
+        <div className={classes.title}>{props.state.friendsOnline} FRIENDS ONLINE</div>
         <div className={classes.items}>
           { friends }
         </div>
