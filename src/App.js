@@ -21,8 +21,8 @@ function App(props) {
         <Header />
         <MainMenu />
         <div className="body">
-          <Route path='/home' render={ () => <HomePage users={props.users} following={props.following} /> } />
-          <Route path='/dialogs' render={ () => <DialogsPage users={props.users} /> } />
+          <Route path='/home' render={ () => <HomePage state={props.state} /> } />
+          <Route path='/dialogs' render={ () => <DialogsPage users={props.state.users} /> } />
           <Route path='/news' component={NewsPage} />
           <Route path='/friends' component={FriendsPage} />
           <Route path='/communities' component={CommunitiesPage} />

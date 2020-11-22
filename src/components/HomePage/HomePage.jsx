@@ -16,13 +16,13 @@ const HomePage = (props) => {
         <div className={classes.narrowColumn}>
           <ProfileInfo />
           <EventBlock />
-          <FollowingBlock following={props.following} />
+          <FollowingBlock following={props.state.following} />
         </div>
         <SubmitPost />
         <Post />
       </div>
       <div className={classes.rightSidebar}>
-        <HomePageSidebar users={props.users} />
+        <HomePageSidebar users={props.state.users} />
       </div>
     </div>
   )
