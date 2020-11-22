@@ -8,7 +8,7 @@ import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
 
 const Chat = (props) => {
-  const messages = props.chat.AshleyWilliams.map( msg => {
+  const messages = props.chat.AshleyWilliams.messages.map( msg => {
     if (msg.from === 'friend') return <MessageItemFriend photo={msg.photo} msg={msg.text} time={msg.time} />
     if (msg.from === 'me') return <MessageItemMy photo={msg.photo} msg={msg.text} time={msg.time} />
   });

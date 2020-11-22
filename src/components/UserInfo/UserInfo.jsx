@@ -10,6 +10,7 @@ import Voice from '../../assets/voice-att.png';
 import AttachmentItem from '../AttachmentItem/AttachmentItem.jsx';
 
 const UserInfo = (props) => {
+  console.log(props)
   return (
     <div className={classes.userInfo}>
       <div className={classes.userBlock}>
@@ -21,15 +22,15 @@ const UserInfo = (props) => {
         </div>
       </div>
 
-      <div className={classes.attacment}>
-        <div className={classes.title}>ATTACMENT</div>
+      <div className={classes.attachment}>
+        <div className={classes.title}>ATTACHMENT</div>
         <div className={classes.wrapper}>
-          <AttachmentItem icon={Photos} count='203' label='photos' />
-          <AttachmentItem icon={Videos} count='12' label='videos' />
-          <AttachmentItem icon={Files} count='23' label='files' />
-          <AttachmentItem icon={Audio} count='10' label='audio files' />
-          <AttachmentItem icon={Links} count='238' label='links' />
-          <AttachmentItem icon={Voice} count='18' label='voice messages' />
+          <AttachmentItem icon={Photos} count={props.chat.AshleyWilliams.attachment.photos.count} label='photos' />
+          <AttachmentItem icon={Videos} count={props.chat.AshleyWilliams.attachment.videos.count} label='videos' />
+          <AttachmentItem icon={Files} count={props.chat.AshleyWilliams.attachment.files.count} label='files' />
+          <AttachmentItem icon={Audio} count={props.chat.AshleyWilliams.attachment.audio.count} label='audio files' />
+          <AttachmentItem icon={Links} count={props.chat.AshleyWilliams.attachment.links.count} label='links' />
+          <AttachmentItem icon={Voice} count={props.chat.AshleyWilliams.attachment.voice.count} label='voice messages' />
         </div>
       </div>
 
