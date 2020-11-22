@@ -7,8 +7,8 @@ import UserInfo from '../UserInfo/UserInfo';
 const DialogsPage = (props) => {
   return (
     <div className={classes.dialogsPage}>
-      <Dialogs users={props.users} />
-      <Chat />
+      <Dialogs users={props.state.users} />
+      <Chat chat={props.state.chat} />
       <UserInfo />
     </div>
   )

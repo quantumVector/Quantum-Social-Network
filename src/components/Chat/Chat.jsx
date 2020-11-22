@@ -3,17 +3,16 @@ import classes from './Chat.module.css';
 import sidebar from '../../assets/sidebar.png';
 import MessageItemFriend from '../MessageItemFriend/MessageItemFriend.jsx';
 import MessageItemMy from '../MessageItemMy/MessageItemMy.jsx';
-import Ashley from '../../assets/profiles/Ashley-mini.png';
-import Shepard from '../../assets/profiles/Shepard-mini.png';
 import attach from '../../assets/attach.png';
 import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
 
-const msg = 'Cras sagittis vitae nulla id tempus. Aenean iaculis risus mi. Ut mollis turpis non massa interdum varius. Donec consectetur, massa commodo auctor condimentum, neque sapien bibendum nunc, nec molestie orci libero id erat.';
+const Chat = (props) => {
+  const messages = props.chat.AshleyWilliams.map( msg => {
+    if (msg.from === 'friend') return <MessageItemFriend photo={msg.photo} msg={msg.text} time={msg.time} />
+    if (msg.from === 'me') return <MessageItemMy photo={msg.photo} msg={msg.text} time={msg.time} />
+  });
 
-const msg2 = 'Cras sagittis vitae nulla id tempus. Aenean iaculis risus mi.';
-
-const Chat = () => {
   return (
     <div className={classes.chatBody}>
       <div className={classes.header}>
@@ -25,20 +24,7 @@ const Chat = () => {
         <img src={sidebar} alt='icon'></img>
       </div>
       <div className={classes.chat}>
-        <MessageItemFriend photo={Ashley} msg={msg} time='11:23 PM' />
-        <MessageItemMy photo={Shepard} msg={msg2} time='11:23 PM' />
-        <MessageItemFriend photo={Ashley} msg={msg} time='11:23 PM' />
-        <MessageItemMy photo={Shepard} msg={msg2} time='11:23 PM' />
-        <MessageItemFriend photo={Ashley} msg={msg} time='11:23 PM' />
-        <MessageItemMy photo={Shepard} msg={msg2} time='11:23 PM' />
-        <MessageItemFriend photo={Ashley} msg={msg} time='11:23 PM' />
-        <MessageItemMy photo={Shepard} msg={msg2} time='11:23 PM' />
-        <MessageItemFriend photo={Ashley} msg={msg} time='11:23 PM' />
-        <MessageItemMy photo={Shepard} msg={msg2} time='11:23 PM' />
-        <MessageItemFriend photo={Ashley} msg={msg} time='11:23 PM' />
-        <MessageItemMy photo={Shepard} msg={msg2} time='11:23 PM' />
-        <MessageItemFriend photo={Ashley} msg={msg} time='11:23 PM' />
-        <MessageItemMy photo={Shepard} msg={msg2} time='11:23 PM' />
+        { messages }
       </div>
       <div className={classes.chatInput}>
         <img src={attach} alt='icon'></img>
