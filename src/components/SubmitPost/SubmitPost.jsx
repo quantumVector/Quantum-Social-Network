@@ -1,12 +1,11 @@
 import React from 'react';
 import classes from './SubmitPost.module.css';
 import emoji from '../../assets/emoji-icon.png';
-import photo from '../../assets/profiles/Shepard-mini.png';
 import photoAndVideo from '../../assets/photo-video-post.png';
 import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
 
-const SubmitPost = () => {
+const SubmitPost = (props) => {
   return (
     <div className={classes.block}>
       <div className={classes.actionsBox}>
@@ -18,7 +17,7 @@ const SubmitPost = () => {
         <img src={emoji} className={classes.emoji} alt='icon'></img>
       </div>
       <div className={classes.postBox}>
-        <img src={photo} className={classes.userPhoto} alt='icon'></img>
+        <img src={props.profile.photo} className={classes.userPhoto} alt='icon'></img>
         <textarea placeholder='Write something...'></textarea>
       </div>
       <div className={classes.mediaBox}>
