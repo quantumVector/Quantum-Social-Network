@@ -6,6 +6,14 @@ import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
 
 const SubmitPost = (props) => {
+  const newPostElem = React.createRef();
+
+  const addPost = () => {
+    const text = newPostElem.current.value;
+
+    console.log(text);
+  }
+
   return (
     <div className={classes.block}>
       <div className={classes.actionsBox}>
@@ -18,7 +26,7 @@ const SubmitPost = (props) => {
       </div>
       <div className={classes.postBox}>
         <img src={props.profile.photo} className={classes.userPhoto} alt='icon'></img>
-        <textarea placeholder='Write something...'></textarea>
+        <textarea ref={newPostElem} placeholder='Write something...'></textarea>
       </div>
       <div className={classes.mediaBox}>
         <div className={classes.media}>
@@ -35,7 +43,7 @@ const SubmitPost = (props) => {
             <div>Check in</div>
           </div>
         </div>
-        <div className={classes.submit}>Share</div>
+        <div className={classes.submit} onClick={addPost}>Share</div>
       </div>
     </div>
   )
