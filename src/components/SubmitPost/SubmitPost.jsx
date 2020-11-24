@@ -10,8 +10,9 @@ const SubmitPost = (props) => {
 
   const addPost = () => {
     const text = newPostElem.current.value;
-
-    console.log(text);
+    console.log(props);
+    props.addPost(text);
+    newPostElem.current.value = '';
   }
 
   return (

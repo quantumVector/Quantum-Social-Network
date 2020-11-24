@@ -1,3 +1,4 @@
+import { rerenderEntireTree } from '../render';
 import photoShepard from '../assets/profiles/Shepard-mini.png';
 import photoAnderson from '../assets/profiles/Anderson-mini.png';
 import photoAshley from '../assets/profiles/Ashley-mini.png';
@@ -134,6 +135,20 @@ const state = {
   chat: {
     AshleyWilliams: chatAshleyWilliams,
   }
+}
+
+export const addPost = (text) => {
+  const newPost = {
+    time: '16 minutes ago',
+    text,
+    content: [photo1Post1, photo2Post1, photo3Post1],
+    likes: '4',
+    comments: '1',
+    shared: '0',
+  }
+
+  state.posts.unshift(newPost);
+  rerenderEntireTree(state);
 }
 
 export default state;
