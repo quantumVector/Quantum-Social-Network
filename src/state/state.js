@@ -151,4 +151,16 @@ export const addPost = (text) => {
   rerenderEntireTree(state);
 }
 
+export const addMassage = (text) => {
+  const newMessage = {
+    from: 'me',
+    photo: photoShepard,
+    time: '12:00 PM',
+    text,
+  }
+
+  state.chat.AshleyWilliams.messages.push(newMessage);
+  rerenderEntireTree(state);
+}
+
 export default state;
