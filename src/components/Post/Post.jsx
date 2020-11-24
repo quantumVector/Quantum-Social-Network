@@ -9,38 +9,38 @@ const Post = (props) => {
   return (
     <div className={classes.block}>
       <div className={classes.postHeader}>
-        <img src={props.state.profile.photo} className={classes.userPhoto} alt='icon'></img>
+        <img src={props.profile.photo} className={classes.userPhoto} alt='icon'></img>
         <div className={classes.info}>
           <div className={classes.author}>
-            <span className={classes.name}>{props.state.profile.name} </span>create new <span className={classes.feedback}>album</span>
+            <span className={classes.name}>{props.profile.name} </span>create new <span className={classes.feedback}>album</span>
           </div>
-          <div className={classes.date}>{props.state.posts.time}</div>
+          <div className={classes.date}>{props.post.time}</div>
         </div>
         <div className={classes.actions}>
           <img src={actions} className={classes.icon} alt='icon'></img>
         </div>
       </div>
 
-      <div className={classes.text}>{props.state.posts.text}</div>
+      <div className={classes.text}>{props.post.text}</div>
 
       <div className={classes.content}>
-        <img src={props.state.posts.content[0]} className={classes.item} alt='icon'></img>
-        <img src={props.state.posts.content[1]} className={classes.item} alt='icon'></img>
-        <img src={props.state.posts.content[2]} className={classes.item} alt='icon'></img>
+        <img src={props.post.content[0]} className={classes.item} alt='icon'></img>
+        <img src={props.post.content[1]} className={classes.item} alt='icon'></img>
+        <img src={props.post.content[2]} className={classes.item} alt='icon'></img>
       </div>
 
       <div className={classes.btns}>
         <div className={classes.item}>
           <img src={like} className={classes.icon} alt='icon'></img>
-          <div>{props.state.posts.likes}</div>
+          <div>{props.post.likes}</div>
         </div>
         <div className={classes.item}>
           <img src={comments} className={classes.icon} alt='icon'></img>
-          <div>{props.state.posts.comments}</div>
+          <div>{props.post.comments}</div>
         </div>
         <div className={classes.item}>
           <img src={shared} className={classes.icon} alt='icon'></img>
-          <div>{props.state.posts.shared}</div>
+          <div>{props.post.shared}</div>
         </div>
       </div>
     </div>

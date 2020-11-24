@@ -24,14 +24,24 @@ const state = {
     photo: photoShepard,
   },
 
-  posts: {
-    time: '6 hours ago',
-    text: 'Individuals forged in the fire of service and battle.',
-    content: [photo1Post1, photo2Post1, photo3Post1],
-    likes: '87',
-    comments: '20',
-    shared: '13',
-  },
+  posts: [
+    {
+      time: '6 hours ago',
+      text: 'Individuals forged in the fire of service and battle.',
+      content: [photo1Post1, photo2Post1, photo3Post1],
+      likes: '87',
+      comments: '20',
+      shared: '13',
+    },
+    {
+      time: '6 hours ago',
+      text: 'Individuals forged in the fire of service and battle.',
+      content: [photo1Post1, photo2Post1, photo3Post1],
+      likes: '87',
+      comments: '20',
+      shared: '13',
+    },
+  ],
 
   friendsOnline: '10',
 
