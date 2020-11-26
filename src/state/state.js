@@ -1,4 +1,3 @@
-import { rerenderEntireTree } from '../render';
 import photoShepard from '../assets/profiles/Shepard-mini.png';
 import photoAnderson from '../assets/profiles/Anderson-mini.png';
 import photoAshley from '../assets/profiles/Ashley-mini.png';
@@ -18,6 +17,11 @@ import photo1Post1 from '../assets/postPhotos/photo1.jpg';
 import photo2Post1 from '../assets/postPhotos/photo2.jpg';
 import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 import chatAshleyWilliams from './chat/AshleyWilliams';
+
+let rerenderEntireTree = () => {
+  console.log('State was changed');
+  console.log(state);
+}
 
 const state = {
   profile: {
@@ -161,6 +165,10 @@ export const addMassage = (text) => {
 
   state.chat.AshleyWilliams.messages.push(newMessage);
   rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
 }
 
 export default state;
