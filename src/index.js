@@ -3,20 +3,20 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import './index.css';
-import state, { subscribe, addPost, addMassage } from './state/state';
+import store from './state/state';
 
-const rerenderEntireTree = (state) => {
+const rerenderEntireTree = (store) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} addPost={addPost} addMessage={addMassage} />
+      <App state={store.getState()} addPost={store.addPost.bind(store)} addMessage={store.addMassage.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
 
-rerenderEntireTree(state);
+rerenderEntireTree(store);
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

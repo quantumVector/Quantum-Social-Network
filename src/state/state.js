@@ -18,157 +18,162 @@ import photo2Post1 from '../assets/postPhotos/photo2.jpg';
 import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 import chatAshleyWilliams from './chat/AshleyWilliams';
 
-let rerenderEntireTree = () => {
-  console.log('State was changed');
-  console.log(state);
-}
-
-const state = {
-  profile: {
-    name: 'John Shepard',
-    photo: photoShepard,
+const store = {
+  _state: {
+    profile: {
+      name: 'John Shepard',
+      photo: photoShepard,
+    },
+  
+    posts: [
+      {
+        time: '6 hours ago',
+        text: 'Individuals forged in the fire of service and battle.',
+        content: [photo1Post1, photo2Post1, photo3Post1],
+        likes: '87',
+        comments: '20',
+        shared: '13',
+      },
+      {
+        time: '6 hours ago',
+        text: 'Individuals forged in the fire of service and battle.',
+        content: [photo1Post1, photo2Post1, photo3Post1],
+        likes: '87',
+        comments: '20',
+        shared: '13',
+      },
+    ],
+  
+    friendsOnline: '10',
+  
+    users: [
+      {
+        name: 'David Anderson',
+        photo: photoAnderson,
+        story: false,
+        storyCreated: null,
+      },
+      {
+        name: 'Ashley Williams',
+        photo: photoAshley,
+        story: true,
+        storyCreated: '29 minutes ago',
+      },
+      {
+        name: 'Garrus Vakarian',
+        photo: photoGarrus,
+        story: false,
+        storyCreated: null,
+      },
+      {
+        name: 'James Vega',
+        photo: photoJames,
+        story: true,
+        storyCreated: '3 hours ago',
+      },
+      {
+        name: "Liara T'Soni",
+        photo: photoLiara,
+        story: true,
+        storyCreated: '9 hours ago',
+      },
+      {
+        name: 'Miranda Lawson',
+        photo: photoMiranda,
+        story: false,
+        storyCreated: null,
+      },
+      {
+        name: 'Miranda Lawson',
+        photo: photoMordin,
+        story: true,
+        storyCreated: '18 hours ago',
+      },
+      {
+        name: "Tali'Zorah",
+        photo: photoTali,
+        story: false,
+        storyCreated: null,
+      },
+      {
+        name: 'Thane Krios',
+        photo: photoThane,
+        story: false,
+        storyCreated: null,
+      },
+      {
+        name: 'Urdnot Wrex',
+        photo: photoUrdnot,
+        story: false,
+        storyCreated: null,
+      },
+    ],
+  
+    following: [
+      {
+        name: 'Organization SPECTRES',
+        photo: photoSpectres,
+      },
+      {
+        name: 'Alliance Special Forces',
+        photo: photoAlliance,
+      },
+      {
+        name: 'Galactic News',
+        photo: photoNews,
+      },
+    ],
+  
+    events: {
+      label: 'Travel to the Citadel for supplies.',
+      photo: photoEvent,
+      fullTime: '01st Jan, 2186 07:00AM',
+      day: '01',
+      month: 'Jan',
+    },
+  
+    chat: {
+      AshleyWilliams: chatAshleyWilliams,
+    }
   },
 
-  posts: [
-    {
-      time: '6 hours ago',
-      text: 'Individuals forged in the fire of service and battle.',
-      content: [photo1Post1, photo2Post1, photo3Post1],
-      likes: '87',
-      comments: '20',
-      shared: '13',
-    },
-    {
-      time: '6 hours ago',
-      text: 'Individuals forged in the fire of service and battle.',
-      content: [photo1Post1, photo2Post1, photo3Post1],
-      likes: '87',
-      comments: '20',
-      shared: '13',
-    },
-  ],
-
-  friendsOnline: '10',
-
-  users: [
-    {
-      name: 'David Anderson',
-      photo: photoAnderson,
-      story: false,
-      storyCreated: null,
-    },
-    {
-      name: 'Ashley Williams',
-      photo: photoAshley,
-      story: true,
-      storyCreated: '29 minutes ago',
-    },
-    {
-      name: 'Garrus Vakarian',
-      photo: photoGarrus,
-      story: false,
-      storyCreated: null,
-    },
-    {
-      name: 'James Vega',
-      photo: photoJames,
-      story: true,
-      storyCreated: '3 hours ago',
-    },
-    {
-      name: "Liara T'Soni",
-      photo: photoLiara,
-      story: true,
-      storyCreated: '9 hours ago',
-    },
-    {
-      name: 'Miranda Lawson',
-      photo: photoMiranda,
-      story: false,
-      storyCreated: null,
-    },
-    {
-      name: 'Miranda Lawson',
-      photo: photoMordin,
-      story: true,
-      storyCreated: '18 hours ago',
-    },
-    {
-      name: "Tali'Zorah",
-      photo: photoTali,
-      story: false,
-      storyCreated: null,
-    },
-    {
-      name: 'Thane Krios',
-      photo: photoThane,
-      story: false,
-      storyCreated: null,
-    },
-    {
-      name: 'Urdnot Wrex',
-      photo: photoUrdnot,
-      story: false,
-      storyCreated: null,
-    },
-  ],
-
-  following: [
-    {
-      name: 'Organization SPECTRES',
-      photo: photoSpectres,
-    },
-    {
-      name: 'Alliance Special Forces',
-      photo: photoAlliance,
-    },
-    {
-      name: 'Galactic News',
-      photo: photoNews,
-    },
-  ],
-
-  events: {
-    label: 'Travel to the Citadel for supplies.',
-    photo: photoEvent,
-    fullTime: '01st Jan, 2186 07:00AM',
-    day: '01',
-    month: 'Jan',
+  getState() {
+    return this._state;
   },
 
-  chat: {
-    AshleyWilliams: chatAshleyWilliams,
+  _callSubscriber() {
+    console.log('State was changed');
+  },
+
+  addPost(text) {
+    const newPost = {
+      time: '16 minutes ago',
+      text,
+      content: [photo1Post1, photo2Post1, photo3Post1],
+      likes: '4',
+      comments: '1',
+      shared: '0',
+    }
+
+    this._state.posts.unshift(newPost);
+    this._callSubscriber(this);
+  },
+
+  addMassage(text) {
+    const newMessage = {
+      from: 'me',
+      photo: photoShepard,
+      time: '12:00 PM',
+      text,
+    }
+
+    this._state.chat.AshleyWilliams.messages.push(newMessage);
+    this._callSubscriber(this);
+  },
+
+  subscribe(observer) {
+    this._callSubscriber = observer;
   }
 }
 
-export const addPost = (text) => {
-  const newPost = {
-    time: '16 minutes ago',
-    text,
-    content: [photo1Post1, photo2Post1, photo3Post1],
-    likes: '4',
-    comments: '1',
-    shared: '0',
-  }
-
-  state.posts.unshift(newPost);
-  rerenderEntireTree(state);
-}
-
-export const addMassage = (text) => {
-  const newMessage = {
-    from: 'me',
-    photo: photoShepard,
-    time: '12:00 PM',
-    text,
-  }
-
-  state.chat.AshleyWilliams.messages.push(newMessage);
-  rerenderEntireTree(state);
-}
-
-export const subscribe = (observer) => {
-  rerenderEntireTree = observer;
-}
-
-export default state;
+export default store;
