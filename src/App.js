@@ -23,11 +23,11 @@ function App(props) {
         <div className="body">
           <Route path='/home' render={() => <HomePage
             state={props.state}
-            addPost={props.addPost}
+            dispatch={props.dispatch}
           />} />
           <Route path='/dialogs' render={() => <DialogsPage
             state={props.state}
-            addMessage={props.addMessage}
+            dispatch={props.dispatch}
           />} />
           <Route path='/news' component={NewsPage} />
           <Route path='/friends' component={FriendsPage} />

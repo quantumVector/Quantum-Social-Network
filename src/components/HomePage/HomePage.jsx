@@ -22,7 +22,7 @@ const HomePage = (props) => {
           <EventBlock events={props.state.events} />
           <FollowingBlock following={props.state.following} />
         </div>
-        <SubmitPost profile={props.state.profile} addPost={props.addPost} />
+        <SubmitPost profile={props.state.profile} dispatch={props.dispatch} />
         { posts }
       </div>
       <div className={classes.rightSidebar}>

@@ -9,9 +9,9 @@ const SubmitPost = (props) => {
   const newPostElem = React.createRef();
 
   const addPost = () => {
-    const text = newPostElem.current.value;
-    console.log(props)
-    props.addPost(text);
+    const action = { type: 'ADD-POST', text: newPostElem.current.value };
+
+    props.dispatch(action);
     newPostElem.current.value = '';
   }
 

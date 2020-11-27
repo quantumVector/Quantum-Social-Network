@@ -145,35 +145,37 @@ const store = {
     console.log('State was changed');
   },
 
-  addPost(text) {
-    const newPost = {
-      time: '16 minutes ago',
-      text,
-      content: [photo1Post1, photo2Post1, photo3Post1],
-      likes: '4',
-      comments: '1',
-      shared: '0',
-    }
-
-    this._state.posts.unshift(newPost);
-    this._callSubscriber(this);
-  },
-
-  addMassage(text) {
-    const newMessage = {
-      from: 'me',
-      photo: photoShepard,
-      time: '12:00 PM',
-      text,
-    }
-
-    this._state.chat.AshleyWilliams.messages.push(newMessage);
-    this._callSubscriber(this);
-  },
-
   subscribe(observer) {
     this._callSubscriber = observer;
-  }
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      const newPost = {
+        time: '16 minutes ago',
+        text: action.text,
+        content: [photo1Post1, photo2Post1, photo3Post1],
+        likes: '4',
+        comments: '1',
+        shared: '0',
+      }
+
+      this._state.posts.unshift(newPost);
+      this._callSubscriber(this);
+    }
+
+    if (action.type === 'ADD-MESSAGE') {
+      const newMessage = {
+        from: 'me',
+        photo: photoShepard,
+        time: '12:00 PM',
+        text: action.text,
+      }
+
+      this._state.chat.AshleyWilliams.messages.push(newMessage);
+      this._callSubscriber(this);
+    }
+  },
 }
 
 export default store;

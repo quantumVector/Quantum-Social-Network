@@ -17,8 +17,9 @@ const Chat = (props) => {
   const newMessage = React.createRef();
 
   const sendMessage = () => {
-    const text = newMessage.current.value;
-    props.addMessage(text);
+    const action = { type: 'ADD-MESSAGE', text: newMessage.current.value };
+
+    props.dispatch(action);
     newMessage.current.value = '';
   }
 
