@@ -18,6 +18,9 @@ import photo2Post1 from '../assets/postPhotos/photo2.jpg';
 import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 import chatAshleyWilliams from './chat/AshleyWilliams';
 
+const ADD_POST = 'ADD-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+
 const store = {
   _state: {
     profile: {
@@ -176,6 +179,20 @@ const store = {
       this._callSubscriber(this);
     }
   },
+}
+
+export const addPostActionCreator = (text) => {
+  return {
+    type: ADD_POST,
+    text,
+  }
+}
+
+export const addMessageActionCreator = (text) => {
+  return {
+    type: ADD_MESSAGE,
+    text,
+  }
 }
 
 export default store;

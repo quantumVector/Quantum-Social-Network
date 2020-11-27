@@ -7,6 +7,7 @@ import attach from '../../assets/attach.png';
 import send from '../../assets/send-icon.png';
 import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
+import { addMessageActionCreator } from '../../state/state';
 
 const Chat = (props) => {
   const messages = props.chat.AshleyWilliams.messages.map( msg => {
@@ -17,7 +18,7 @@ const Chat = (props) => {
   const newMessage = React.createRef();
 
   const sendMessage = () => {
-    const action = { type: 'ADD-MESSAGE', text: newMessage.current.value };
+    const action = addMessageActionCreator(newMessage.current.value)
 
     props.dispatch(action);
     newMessage.current.value = '';

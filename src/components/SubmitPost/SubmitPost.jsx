@@ -4,12 +4,14 @@ import emoji from '../../assets/emoji-icon.png';
 import photoAndVideo from '../../assets/photo-video-post.png';
 import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
+import { addPostActionCreator } from '../../state/state';
+
 
 const SubmitPost = (props) => {
   const newPostElem = React.createRef();
 
   const addPost = () => {
-    const action = { type: 'ADD-POST', text: newPostElem.current.value };
+    const action = addPostActionCreator(newPostElem.current.value);
 
     props.dispatch(action);
     newPostElem.current.value = '';
