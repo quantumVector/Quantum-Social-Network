@@ -17,9 +17,8 @@ import photo1Post1 from '../assets/postPhotos/photo1.jpg';
 import photo2Post1 from '../assets/postPhotos/photo2.jpg';
 import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 import chatAshleyWilliams from './chat/AshleyWilliams';
-
-const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
+import postReducer from './postReducer';
+import chatReducer from './chatReducer';
 
 const store = {
   _state: {
@@ -153,46 +152,10 @@ const store = {
   },
 
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
-      const newPost = {
-        time: '16 minutes ago',
-        text: action.text,
-        content: [photo1Post1, photo2Post1, photo3Post1],
-        likes: '4',
-        comments: '1',
-        shared: '0',
-      }
-
-      this._state.posts.unshift(newPost);
-      this._callSubscriber(this);
-    }
-
-    if (action.type === 'ADD-MESSAGE') {
-      const newMessage = {
-        from: 'me',
-        photo: photoShepard,
-        time: '12:00 PM',
-        text: action.text,
-      }
-
-      this._state.chat.AshleyWilliams.messages.push(newMessage);
-      this._callSubscriber(this);
-    }
+    this._state.posts = postReducer(this._state.posts, action);
+    this._state.chat = chatReducer(this._state.chat, action);
+    this._callSubscriber(this);
   },
-}
-
-export const addPostActionCreator = (text) => {
-  return {
-    type: ADD_POST,
-    text,
-  }
-}
-
-export const addMessageActionCreator = (text) => {
-  return {
-    type: ADD_MESSAGE,
-    text,
-  }
 }
 
 export default store;

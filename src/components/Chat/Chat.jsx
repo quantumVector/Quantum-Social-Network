@@ -7,7 +7,7 @@ import attach from '../../assets/attach.png';
 import send from '../../assets/send-icon.png';
 import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
-import { addMessageActionCreator } from '../../state/state';
+import { addMessageActionCreator } from '../../state/chatReducer';
 
 const Chat = (props) => {
   const messages = props.chat.AshleyWilliams.messages.map( msg => {
