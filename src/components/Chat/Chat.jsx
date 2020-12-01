@@ -7,7 +7,7 @@ import attach from '../../assets/attach.png';
 import send from '../../assets/send-icon.png';
 import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
-import { addMessageActionCreator } from '../../state/chatReducer';
+import { addMessageActionCreator } from '../../redux/chatReducer';
 
 const Chat = (props) => {
   const messages = props.chat.AshleyWilliams.messages.map( msg => {
@@ -19,6 +19,7 @@ const Chat = (props) => {
 
   const sendMessage = () => {
     const action = addMessageActionCreator(newMessage.current.value)
+    console.log(action)
 
     props.dispatch(action);
     newMessage.current.value = '';

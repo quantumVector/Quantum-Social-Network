@@ -4,7 +4,7 @@ import emoji from '../../assets/emoji-icon.png';
 import photoAndVideo from '../../assets/photo-video-post.png';
 import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
-import { addPostActionCreator } from '../../state/postReducer';
+import { addPostActionCreator } from '../../redux/postReducer';
 
 
 const SubmitPost = (props) => {

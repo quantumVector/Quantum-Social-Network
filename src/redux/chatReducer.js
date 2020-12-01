@@ -1,8 +1,13 @@
+import chatAshleyWilliams from './chat/AshleyWilliams';
 import photoShepard from '../assets/profiles/Shepard-mini.png';
 
 const ADD_MESSAGE = 'ADD-MESSAGE';
 
-const chatReducer = (state, action) => {
+const initialState = {
+  AshleyWilliams: chatAshleyWilliams,
+}
+
+const chatReducer = (state = initialState, action) => {
   const newMessage = {
     from: 'me',
     photo: photoShepard,

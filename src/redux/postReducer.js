@@ -4,7 +4,26 @@ import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 
 const ADD_POST = 'ADD-POST';
 
-const postReducer = (state, action) => {
+const initialState = [
+  {
+    time: '6 hours ago',
+    text: 'Individuals forged in the fire of service and battle.',
+    content: [photo1Post1, photo2Post1, photo3Post1],
+    likes: '87',
+    comments: '20',
+    shared: '13',
+  },
+  {
+    time: '6 hours ago',
+    text: 'Individuals forged in the fire of service and battle.',
+    content: [photo1Post1, photo2Post1, photo3Post1],
+    likes: '87',
+    comments: '20',
+    shared: '13',
+  },
+];
+
+const postReducer = (state = initialState, action) => {
   const newPost = {
     time: '16 minutes ago',
     text: action.text,
