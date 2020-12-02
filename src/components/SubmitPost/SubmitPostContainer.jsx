@@ -1,17 +1,26 @@
 import React from 'react';
-import { addPostActionCreator } from '../../redux/postReducer';
+import { addPostActionCreator, updateSubmitTextCreator } from '../../redux/postReducer';
 import SubmitPost from './SubmitPost.jsx';
 
 
 const SubmitPostContainer = (props) => {
-  const addPost = (newPostElem) => {
-    const action = addPostActionCreator(newPostElem.current.value);
+  const addPost = () => {
+    const action = addPostActionCreator();
 
     props.dispatch(action);
-    newPostElem.current.value = '';
   }
 
-  return <SubmitPost addPost={addPost} profile={props.profile} />
+  const updateSubmitText = (text) => {
+    const action = updateSubmitTextCreator(text);
+
+    props.dispatch(action);
+  }
+
+  return <SubmitPost
+    addPost={addPost}
+    profile={props.profile}
+    updateSubmitText={updateSubmitText}
+    currentTextMessage={props.posts.currentTextPost} />
 }
 
 export default SubmitPostContainer;

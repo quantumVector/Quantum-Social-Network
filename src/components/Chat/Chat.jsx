@@ -7,10 +7,12 @@ import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
 
 const Chat = (props) => {
-  const newMessage = React.createRef();
-
   const onSendMessage = () => {
-    props.sendMessage(newMessage);
+    props.sendMessage();
+  }
+
+  const onChangeMessage = (e) => {
+    props.updateMessage(e.target.value);
   }
 
   return (
@@ -24,11 +26,16 @@ const Chat = (props) => {
         <img src={sidebar} alt='icon'></img>
       </div>
       <div className={classes.chat}>
-        { props.messages }
+        {props.messages}
       </div>
       <div className={classes.chatInput}>
         <img src={attach} alt='icon'></img>
-        <input className={classes.input} type='text' ref={newMessage} placeholder='Write a message...'></input>
+        <input className={classes.input}
+          type='text'
+          placeholder='Write a message...'
+          onChange={onChangeMessage}
+          value={props.currentTextMessage}>
+        </input>
         <img src={send} onClick={onSendMessage} alt='icon'></img>
         <img src={emoji} alt='icon'></img>
         <img src={voice} alt='icon'></img>

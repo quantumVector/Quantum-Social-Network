@@ -5,8 +5,6 @@ import App from './App';
 import './index.css';
 import store from './redux/reduxStore';
 
-console.log(store.dispatch.bind(store))
-
 const rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>

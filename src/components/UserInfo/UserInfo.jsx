@@ -10,7 +10,6 @@ import Voice from '../../assets/voice-att.png';
 import AttachmentItem from '../AttachmentItem/AttachmentItem.jsx';
 
 const UserInfo = (props) => {
-  console.log(props)
   return (
     <div className={classes.userInfo}>
       <div className={classes.userBlock}>

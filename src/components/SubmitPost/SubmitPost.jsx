@@ -6,10 +6,12 @@ import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
 
 const SubmitPost = (props) => {
-  const newPostElem = React.createRef();
-
   const onAddPost = () => {
-    props.addPost(newPostElem);
+    props.addPost();
+  }
+
+  const onUpdateSubmitText = (e) => {
+    props.updateSubmitText(e.target.value);
   }
 
   return (
@@ -24,7 +26,7 @@ const SubmitPost = (props) => {
       </div>
       <div className={classes.postBox}>
         <img src={props.profile.photo} className={classes.userPhoto} alt='icon'></img>
-        <textarea ref={newPostElem} placeholder='Write something...'></textarea>
+        <textarea placeholder='Write something...' value={props.currentTextMessage} onChange={onUpdateSubmitText}></textarea>
       </div>
       <div className={classes.mediaBox}>
         <div className={classes.media}>

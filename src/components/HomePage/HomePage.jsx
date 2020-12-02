@@ -9,7 +9,7 @@ import Post from '../Post/Post.jsx';
 import SubmitPostContainer from '../SubmitPost/SubmitPostContainer';
 
 const HomePage = (props) => {
-  const posts = props.state.posts.map( post => {
+  const posts = props.state.posts.published.map( post => {
     return <Post profile={props.state.profile} post={post} />
   });
 
@@ -22,7 +22,7 @@ const HomePage = (props) => {
           <EventBlock events={props.state.events} />
           <FollowingBlock following={props.state.following} />
         </div>
-        <SubmitPostContainer profile={props.state.profile} dispatch={props.dispatch} />
+        <SubmitPostContainer profile={props.state.profile} posts={props.state.posts} dispatch={props.dispatch} />
         { posts }
       </div>
       <div className={classes.rightSidebar}>

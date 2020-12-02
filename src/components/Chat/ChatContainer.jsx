@@ -1,7 +1,7 @@
 import React from 'react';
 import MessageItemFriend from '../MessageItemFriend/MessageItemFriend.jsx';
 import MessageItemMy from '../MessageItemMy/MessageItemMy.jsx';
-import { addMessageActionCreator } from '../../redux/chatReducer';
+import { addMessageActionCreator, updateCurrentTextMessageCreator } from '../../redux/chatReducer';
 import Chat from './Chat.jsx';
 
 const ChatContainer = (props) => {
@@ -10,15 +10,22 @@ const ChatContainer = (props) => {
     if (msg.from === 'me') return <MessageItemMy photo={msg.photo} msg={msg.text} time={msg.time} />
   });
 
-  const sendMessage = (newMessage) => {
-    const action = addMessageActionCreator(newMessage.current.value)
-    console.log(action)
+  const sendMessage = () => {
+    const action = addMessageActionCreator();
 
     props.dispatch(action);
-    newMessage.current.value = '';
   }
 
-  return <Chat sendMessage={sendMessage} messages={messages} />
+  const updateMessage = (text) => {
+    const action = updateCurrentTextMessageCreator(text);
+
+    props.dispatch(action);
+  }
+
+  return <Chat sendMessage={sendMessage}
+    messages={messages}
+    updateMessage={updateMessage}
+    currentTextMessage={props.chat.currentTextMessage} />
 }
 
 export default ChatContainer;
