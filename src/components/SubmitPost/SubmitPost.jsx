@@ -4,17 +4,12 @@ import emoji from '../../assets/emoji-icon.png';
 import photoAndVideo from '../../assets/photo-video-post.png';
 import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
-import { addPostActionCreator } from '../../redux/postReducer';
-
 
 const SubmitPost = (props) => {
   const newPostElem = React.createRef();
 
-  const addPost = () => {
-    const action = addPostActionCreator(newPostElem.current.value);
-
-    props.dispatch(action);
-    newPostElem.current.value = '';
+  const onAddPost = () => {
+    props.addPost(newPostElem);
   }
 
   return (
@@ -46,7 +41,7 @@ const SubmitPost = (props) => {
             <div>Check in</div>
           </div>
         </div>
-        <div className={classes.submit} onClick={addPost}>Share</div>
+        <div className={classes.submit} onClick={onAddPost}>Share</div>
       </div>
     </div>
   )

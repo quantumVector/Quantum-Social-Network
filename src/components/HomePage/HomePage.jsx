@@ -2,11 +2,11 @@ import React from 'react';
 import classes from './HomePage.module.css';
 import HomePageSidebar from '../HomePageSidebar/HomePageSidebar.jsx';
 import ProfileTop from '../ProfileTop/ProfileTop.jsx';
-import SubmitPost from '../SubmitPost/SubmitPost.jsx';
 import ProfileInfo from '../ProfileInfo/ProfileInfo.jsx';
 import EventBlock from '../EventBlock/EventBlock.jsx';
 import FollowingBlock from '../FollowingBlock/FollowingBlock.jsx';
 import Post from '../Post/Post.jsx';
+import SubmitPostContainer from '../SubmitPost/SubmitPostContainer';
 
 const HomePage = (props) => {
   const posts = props.state.posts.map( post => {
@@ -22,7 +22,7 @@ const HomePage = (props) => {
           <EventBlock events={props.state.events} />
           <FollowingBlock following={props.state.following} />
         </div>
-        <SubmitPost profile={props.state.profile} dispatch={props.dispatch} />
+        <SubmitPostContainer profile={props.state.profile} dispatch={props.dispatch} />
         { posts }
       </div>
       <div className={classes.rightSidebar}>
