@@ -21,14 +21,8 @@ function App(props) {
         <Header />
         <MainMenu />
         <div className="body">
-          <Route path='/home' render={() => <HomePage
-            state={props.state}
-            dispatch={props.dispatch}
-          />} />
-          <Route path='/dialogs' render={() => <DialogsPage
-            state={props.state}
-            dispatch={props.dispatch}
-          />} />
+          <Route path='/home' render={() => <HomePage state={props.state} />} />
+          <Route path='/dialogs' render={() => <DialogsPage state={props.state} />} />
           <Route path='/news' component={NewsPage} />
           <Route path='/friends' component={FriendsPage} />
           <Route path='/communities' component={CommunitiesPage} />
@@ -40,6 +34,24 @@ function App(props) {
       </div>
     </BrowserRouter>
   );
+
+  /* return (
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <Header />
+        <MainMenu />
+        <div className="body">
+          <Route path='/news' component={NewsPage} />
+          <Route path='/friends' component={FriendsPage} />
+          <Route path='/communities' component={CommunitiesPage} />
+          <Route path='/photos' component={PhotosPage} />
+          <Route path='/videos' component={VideosPage} />
+          <Route path='/files' component={FilesPage} />
+          <Route path='/events' component={EventsPage} />
+        </div>
+      </div>
+    </BrowserRouter>
+  ); */
 }
 
 export default App;

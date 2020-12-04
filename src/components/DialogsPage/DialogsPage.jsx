@@ -8,7 +8,7 @@ const DialogsPage = (props) => {
   return (
     <div className={classes.dialogsPage}>
       <Dialogs users={props.state.users} />
-      <ChatContainer chat={props.state.chat} dispatch={props.dispatch} />
+      <ChatContainer />
       <UserInfo chat={props.state.chat} />
     </div>
   )

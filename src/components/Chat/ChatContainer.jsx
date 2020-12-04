@@ -3,29 +3,40 @@ import MessageItemFriend from '../MessageItemFriend/MessageItemFriend.jsx';
 import MessageItemMy from '../MessageItemMy/MessageItemMy.jsx';
 import { addMessageActionCreator, updateCurrentTextMessageCreator } from '../../redux/chatReducer';
 import Chat from './Chat.jsx';
+import StoreContext from '../../StoreContext.js';
 
-const ChatContainer = (props) => {
-  const messages = props.chat.AshleyWilliams.messages.map( msg => {
-    if (msg.from === 'friend') return <MessageItemFriend photo={msg.photo} msg={msg.text} time={msg.time} />
-    if (msg.from === 'me') return <MessageItemMy photo={msg.photo} msg={msg.text} time={msg.time} />
-  });
+const ChatContainer = () => {
+  return (
+    <StoreContext.Consumer>
+      {
+        (store) => {
+          const state = store.getState();
 
-  const sendMessage = () => {
-    const action = addMessageActionCreator();
+          const messages = state.chat.AshleyWilliams.messages.map(msg => {
+            if (msg.from === 'friend') return <MessageItemFriend photo={msg.photo} msg={msg.text} time={msg.time} />
+            if (msg.from === 'me') return <MessageItemMy photo={msg.photo} msg={msg.text} time={msg.time} />
+          });
 
-    props.dispatch(action);
-  }
+          const sendMessage = () => {
+            const action = addMessageActionCreator();
 
-  const updateMessage = (text) => {
-    const action = updateCurrentTextMessageCreator(text);
+            store.dispatch(action);
+          }
 
-    props.dispatch(action);
-  }
+          const updateMessage = (text) => {
+            const action = updateCurrentTextMessageCreator(text);
 
-  return <Chat sendMessage={sendMessage}
-    messages={messages}
-    updateMessage={updateMessage}
-    currentTextMessage={props.chat.currentTextMessage} />
+            store.dispatch(action);
+          }
+
+          return <Chat sendMessage={sendMessage}
+            messages={messages}
+            updateMessage={updateMessage}
+            currentTextMessage={state.chat.currentTextMessage} />
+        }
+      }
+    </StoreContext.Consumer>
+  )
 }
 
 export default ChatContainer;
