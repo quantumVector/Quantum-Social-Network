@@ -17,14 +17,22 @@ const chatReducer = (state = initialState, action) => {
     text: state.currentTextMessage,
   }
 
-  switch(action.type) {
+  const stateCopy = {
+    ...state,
+    AshleyWilliams: {
+      ...state.AshleyWilliams,
+      messages: [ ...state.AshleyWilliams.messages ]
+    },
+  }
+
+  switch (action.type) {
     case 'ADD-MESSAGE':
-      state.AshleyWilliams.messages.push(newMessage);
-      state.currentTextMessage = '';
-      return state;
+      stateCopy.AshleyWilliams.messages.push(newMessage);
+      stateCopy.currentTextMessage = '';
+      return stateCopy;
     case 'UPDATE-CURRENT-TEXT-MESSAGE':
-      state.currentTextMessage = action.text;
-      return state;
+      stateCopy.currentTextMessage = action.text;
+      return stateCopy;
     default:
       return state;
   }

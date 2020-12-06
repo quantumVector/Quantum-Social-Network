@@ -38,14 +38,22 @@ const postReducer = (state = initialState, action) => {
     shared: '0',
   }
 
+  const stateCopy = {
+    ...state,
+    published: [ ...state.published ]
+  };
+
   switch (action.type) {
-    case 'ADD-POST':
-      state.published.unshift(newPost);
-      state.currentTextPost = '';
-      return state;
-    case 'UPDATE-SUBMIT-TEXT':
-      state.currentTextPost = action.text;
-      return state;
+    case 'ADD-POST': {
+      stateCopy.published = [...state.published];
+      stateCopy.published.unshift(newPost);
+      stateCopy.currentTextPost = '';
+      return stateCopy;
+    }
+    case 'UPDATE-SUBMIT-TEXT': {
+      stateCopy.currentTextPost = action.text;
+      return stateCopy;
+    }
     default:
       return state;
   }

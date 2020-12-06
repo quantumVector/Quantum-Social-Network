@@ -5,14 +5,9 @@ import ProfileTop from '../ProfileTop/ProfileTop.jsx';
 import ProfileInfo from '../ProfileInfo/ProfileInfo.jsx';
 import EventBlock from '../EventBlock/EventBlock.jsx';
 import FollowingBlock from '../FollowingBlock/FollowingBlock.jsx';
-import Post from '../Post/Post.jsx';
 import SubmitPostContainer from '../SubmitPost/SubmitPostContainer';
 
 const HomePage = (props) => {
-  const posts = props.state.posts.published.map( post => {
-    return <Post profile={props.state.profile} post={post} />
-  });
-
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>
@@ -23,7 +18,6 @@ const HomePage = (props) => {
           <FollowingBlock following={props.state.following} />
         </div>
         <SubmitPostContainer />
-        { posts }
       </div>
       <div className={classes.rightSidebar}>
         <HomePageSidebar state={props.state} />
