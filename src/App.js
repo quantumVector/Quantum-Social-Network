@@ -6,7 +6,7 @@ import MainMenu from './components/MainMenu/MainMenu.jsx';
 import HomePage from './components/HomePage/HomePage.jsx';
 import DialogsPage from './components/DialogsPage/DialogsPage.jsx';
 import NewsPage from './components/NewsPage/NewsPage.jsx';
-import FriendsPage from './components/FriendsPage/FriendsPage.jsx';
+import FriendsPageContainer from './components/FriendsPage/FriendsPageContainer.jsx';
 import CommunitiesPage from './components/CommunitiesPage/CommunitiesPage.jsx';
 import PhotosPage from './components/PhotosPage/PhotosPage.jsx';
 import VideosPage from './components/VideosPage/VideosPage.jsx';
@@ -24,7 +24,7 @@ function App(props) {
           <Route path='/home' render={() => <HomePage state={props.state} />} />
           <Route path='/dialogs' render={() => <DialogsPage state={props.state} />} />
           <Route path='/news' component={NewsPage} />
-          <Route path='/friends' component={FriendsPage} />
+          <Route path='/friends' render={() => <FriendsPageContainer />} />
           <Route path='/communities' component={CommunitiesPage} />
           <Route path='/photos' component={PhotosPage} />
           <Route path='/videos' component={VideosPage} />

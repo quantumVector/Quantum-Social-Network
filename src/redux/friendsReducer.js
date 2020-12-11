@@ -49,14 +49,14 @@ const friendsReducer = (state = initialState, action) => {
   }
 }
 
-export const unfriendCreatorAC = (userId) => {
+export const unfriendActionCreator = (userId) => {
   return {
     type: UNFRIEND,
     userId,
   }
 }
 
-export const setFriendsAC = (friends) => {
+export const setFriendsActionCreator = (friends) => {
   return {
     type: SET_FRIENDS,
     friends,
