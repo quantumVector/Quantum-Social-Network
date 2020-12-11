@@ -6,6 +6,7 @@ import chatReducer from './chatReducer';
 import usersReducer from './usersReducer';
 import followingReducer from './followingReducer';
 import eventsReducer from './eventsReducer';
+import friendsReducer from './friendsReducer';
 
 const reducers = combineReducers({
   profile: profileReducer,
@@ -15,6 +16,7 @@ const reducers = combineReducers({
   following: followingReducer,
   events: eventsReducer,
   chat: chatReducer,
+  friends: friendsReducer,
 });
 
 const store = createStore(reducers);
