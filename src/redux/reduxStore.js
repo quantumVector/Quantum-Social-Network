@@ -16,7 +16,7 @@ const reducers = combineReducers({
   following: followingReducer,
   events: eventsReducer,
   chat: chatReducer,
-  friends: friendsReducer,
+  friendsPage: friendsReducer,
 });
 
 const store = createStore(reducers);

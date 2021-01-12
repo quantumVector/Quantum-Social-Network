@@ -1,49 +1,31 @@
-import testPhoto from '../assets/profiles/Garrus-mini.png';
+/*
+import photoAshley from '../assets/profiles/Ashley-mini.png';
+import photoGarrus from '../assets/profiles/Garrus-mini.png';
+import photoLiara from '../assets/profiles/Liara-mini.png';
+import photoMiranda from '../assets/profiles/Miranda-mini.png'; */
 
 const UNFRIEND = 'UNFRIEND';
 const SET_FRIENDS = 'SET-FRIENDS';
 
-const initialState = [
-  {
-    id: '1',
-    name: 'Tester 1',
-    photo: testPhoto,
-    status: 'want pizza...',
-  },
-  {
-    id: '2',
-    name: 'Tester 2',
-    photo: testPhoto,
-    status: 'In touch with the reptilians, they are my friends',
-  },
-  {
-    id: '3',
-    name: 'Tester 3',
-    photo: testPhoto,
-    status: 'Sad 😔',
-  },
-  {
-    id: '4',
-    name: 'Tester 4',
-    photo: testPhoto,
-    status: 'Funniest day of the year, what do you think?',
-  },
-];
+const initialState = {
+  friends: [],
+};
 
 const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UNFRIEND':
-      return state.map(user => {
-        if (user.id === action.userId) {
-          const index = state.indexOf(user);
+      return {
+        ...state,
+        friends: state.friends.map(user => {
+          if (user.id === action.userId) {
+            return { ...user, inFriends: false }
+          };
 
-          if (index > -1) return [...state.splice(index, 1)];
-
-          return state;
-        }
-      });
+          return user;
+        })
+      };
     case 'SET-FRIENDS':
-      return [...state, action.friends];
+      return {...state, friends: action.friends};
     default:
       return state;
   }

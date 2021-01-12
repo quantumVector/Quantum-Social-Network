@@ -1,0 +1,45 @@
+.friends .friend {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin-bottom: 10px;
+  color: #cfd2e3;
+  background-color: #16192a;
+}
+
+.friends .friend .photo {
+  padding: 10px 20px 10px 10px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.friends .friend .info {
+  width: 500px;
+}
+
+.friends .friend .info .name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.friends .friend .info .status {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #656678;
+}
+
+.friends .friend .info .message {
+  margin-top: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.friends .friend .actions .unfriend {
+  color: #656678;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}

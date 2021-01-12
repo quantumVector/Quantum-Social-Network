@@ -5,7 +5,7 @@ import { unfriendActionCreator, setFriendsActionCreator } from '../../redux/frie
 
 const mapStateToProps = (state) => {
   return {
-    friends: state.friends,
+    friends: state.friendsPage.friends,
   }
 }
 
