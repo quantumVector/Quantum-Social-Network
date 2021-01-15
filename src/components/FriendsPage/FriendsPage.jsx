@@ -1,46 +1,12 @@
 import React from 'react';
 import classes from './FriendsPage.module.css';
-
-
-import photoAshley from '../../assets/profiles/Ashley-mini.png';
-import photoGarrus from '../../assets/profiles/Garrus-mini.png';
-import photoLiara from '../../assets/profiles/Liara-mini.png';
-import photoMiranda from '../../assets/profiles/Miranda-mini.png';
+import axios from 'axios';
 
 const FriendsPage = (props) => {
   if (props.friends.length === 0) {
-    props.setFriends(
-      [
-        {
-          id: '1',
-          name: 'Miranda Lawson',
-          photo: photoMiranda,
-          status: 'want pizza...',
-          inFriends: true,
-        },
-        {
-          id: '2',
-          name: 'Garrus Vakarian',
-          photo: photoGarrus,
-          status: 'In touch with the reptilians, they are my friends',
-          inFriends: true,
-        },
-        {
-          id: '3',
-          name: "Liara T'Soni",
-          photo: photoLiara,
-          status: 'Sad 😔',
-          inFriends: true,
-        },
-        {
-          id: '4',
-          name: 'Ashley Williams',
-          photo: photoAshley,
-          status: 'Funniest day of the year, what do you think?',
-          inFriends: true,
-        },
-      ]
-    );
+    axios.get('http://backend-quantum-social-network/scripts/get_friends_list.php').then(response => {
+      props.setFriends(response.data);
+    });
   }
 
   return (
