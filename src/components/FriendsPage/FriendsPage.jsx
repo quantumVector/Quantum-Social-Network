@@ -3,9 +3,7 @@ import classes from './FriendsPage.module.css';
 import axios from 'axios';
 
 class FriendsPage extends React.Component {
-  constructor(props) {
-    super(props);
-
+  componentDidMount = () => {
     axios.get('http://backend-quantum-social-network/scripts/get_friends_list.php').then(response => {
       this.props.setFriends(response.data);
     });
