@@ -43,3 +43,18 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+.friends .selectPage {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #cfd2e3;
+}
+.friends .selectPage span {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.friends .selectPage .selected {
+  color: #3b6fa8;
+}
