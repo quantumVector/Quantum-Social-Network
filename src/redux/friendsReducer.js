@@ -8,12 +8,14 @@ const UNFRIEND = 'UNFRIEND';
 const SET_FRIENDS = 'SET-FRIENDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_FRIENDS_COUNT = 'SET-TOTAL-FRIENDS-COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 
 const initialState = {
   friends: [],
   pageSize: 4,
   totalFriendsCount: 0,
   currentPage: 1,
+  isFetching: false,
 };
 
 const friendsReducer = (state = initialState, action) => {
@@ -35,6 +37,8 @@ const friendsReducer = (state = initialState, action) => {
       return { ...state, currentPage: action.currentPage };
     case 'SET-TOTAL-FRIENDS-COUNT':
       return { ...state, totalFriendsCount: action.totalCount };
+    case 'TOGGLE-IS-FETCHING':
+      return { ...state, isFetching: action.isFetching };
     default:
       return state;
   }
@@ -65,6 +69,13 @@ export const setTotalFriendsCountCreator = (totalCount) => {
   return {
     type: SET_TOTAL_FRIENDS_COUNT,
     totalCount,
+  }
+}
+
+export const toggleIsFetchingCreator = (isFetching) => {
+  return {
+    type: TOGGLE_IS_FETCHING,
+    isFetching,
   }
 }
 
