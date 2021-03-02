@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import FriendsPage from './FriendsPage.jsx';
 import axios from 'axios';
 import {
-  unfriendActionCreator,
-  setFriendsActionCreator,
-  setCurrentPageCreator,
-  setTotalFriendsCountCreator,
-  toggleIsFetchingCreator
+  unfriend,
+  setFriends,
+  setCurrentPage,
+  setTotalFriendsCount,
+  toggleIsFetching
 } from '../../redux/friendsReducer';
 import Preloader from '../common/Preloader/Preloader.jsx';
 
@@ -53,26 +53,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    unfriends: (userId) => {
-      dispatch(unfriendActionCreator(userId));
-    },
-    setFriends: (friends) => {
-      dispatch(setFriendsActionCreator(friends));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageCreator(pageNumber));
-    },
-    setTotalFriendsCount: (totalCount) => {
-      dispatch(setTotalFriendsCountCreator(totalCount));
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingCreator(isFetching));
-    }
-  }
-}
-
-const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(FriendsPageContainer);
+const ChatContainer = connect(mapStateToProps, {
+  unfriend,
+  setFriends,
+  setCurrentPage,
+  setTotalFriendsCount,
+  toggleIsFetching
+})(FriendsPageContainer);
 
 export default ChatContainer;

@@ -44,35 +44,35 @@ const friendsReducer = (state = initialState, action) => {
   }
 }
 
-export const unfriendActionCreator = (userId) => {
+export const unfriend = (userId) => {
   return {
     type: UNFRIEND,
     userId,
   }
 }
 
-export const setFriendsActionCreator = (friends) => {
+export const setFriends = (friends) => {
   return {
     type: SET_FRIENDS,
     friends,
   }
 }
 
-export const setCurrentPageCreator = (pageNumber) => {
+export const setCurrentPage = (pageNumber) => {
   return {
     type: SET_CURRENT_PAGE,
     pageNumber,
   }
 }
 
-export const setTotalFriendsCountCreator = (totalCount) => {
+export const setTotalFriendsCount = (totalCount) => {
   return {
     type: SET_TOTAL_FRIENDS_COUNT,
     totalCount,
   }
 }
 
-export const toggleIsFetchingCreator = (isFetching) => {
+export const toggleIsFetching = (isFetching) => {
   return {
     type: TOGGLE_IS_FETCHING,
     isFetching,
