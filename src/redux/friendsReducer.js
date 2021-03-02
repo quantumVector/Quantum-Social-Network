@@ -34,7 +34,7 @@ const friendsReducer = (state = initialState, action) => {
     case 'SET-FRIENDS':
       return { ...state, friends: action.friends };
     case 'SET-CURRENT-PAGE':
-      return { ...state, currentPage: action.currentPage };
+      return { ...state, currentPage: action.pageNumber };
     case 'SET-TOTAL-FRIENDS-COUNT':
       return { ...state, totalFriendsCount: action.totalCount };
     case 'TOGGLE-IS-FETCHING':
