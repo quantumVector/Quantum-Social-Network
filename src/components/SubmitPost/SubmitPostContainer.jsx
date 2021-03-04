@@ -6,11 +6,11 @@ import Post from '../Post/Post.jsx';
 
 const mapStateToProps = (state) => {
   const posts = state.posts.published.map( post => {
-    return <Post profile={state.profile} post={post} />
+    return <Post profile={state.profilePage} post={post} />
   });
 
   return {
-    profile: state.profile,
+    profile: state.profilePage,
     currentTextMessage: state.posts.currentTextPost,
     publishedPosts: posts,
   }

@@ -17,6 +17,11 @@
   width: 500px;
 }
 
+.friends .friend .info a {
+  text-decoration: none;
+  color: #cfd2e3;
+}
+
 .friends .friend .info .name {
   margin-top: 10px;
   font-size: 18px;

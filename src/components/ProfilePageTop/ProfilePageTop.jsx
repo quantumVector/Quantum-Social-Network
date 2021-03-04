@@ -1,9 +1,14 @@
 import React from 'react';
-import classes from './ProfileTop.module.css';
+import classes from './ProfilePageTop.module.css';
 import ProfileBtn from '../ProfileBtn/ProfileBtn.jsx';
 import background from '../../assets/profile-head.png';
+import Preloader from '../common/Preloader/Preloader.jsx';
 
 const ProfileTop = (props) => {
+  if(!props.profile) {
+    return <Preloader />
+  }
+
   return (
     <div className={classes.block}>
       <div className={classes.head}>

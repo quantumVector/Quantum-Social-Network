@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import classes from './FriendsPage.module.css';
 
 const FriendsPage = (props) => {
@@ -22,9 +23,13 @@ const FriendsPage = (props) => {
         props.friends.map(friend => {
           return (
             <div className={classes.friend} key={friend.id}>
-              <img src={friend.photo} className={classes.photo} alt="icon" />
+              <NavLink to={'/profile/' + friend.id}>
+                <img src={friend.photo} className={classes.photo} alt="icon" />
+              </NavLink>
               <div className={classes.info}>
-                <div className={classes.name}>{friend.name}</div>
+                <NavLink to={'/profile/' + friend.id}>
+                  <div className={classes.name}>{friend.name}</div>
+                </NavLink>
                 <div className={classes.status}>{friend.status}</div>
                 <div className={classes.message}>Write message</div>
               </div>

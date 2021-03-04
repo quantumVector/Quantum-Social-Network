@@ -9,7 +9,7 @@ import eventsReducer from './eventsReducer';
 import friendsReducer from './friendsReducer';
 
 const reducers = combineReducers({
-  profile: profileReducer,
+  profilePage: profileReducer,
   posts: postReducer,
   friendsOnline: friendsOnlineReducer,
   users: usersReducer,

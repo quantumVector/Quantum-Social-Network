@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header.jsx';
 import MainMenu from './components/MainMenu/MainMenu.jsx';
-import HomePage from './components/HomePage/HomePage.jsx';
 import DialogsPage from './components/DialogsPage/DialogsPage.jsx';
 import NewsPage from './components/NewsPage/NewsPage.jsx';
 import FriendsPageContainer from './components/FriendsPage/FriendsPageContainer.jsx';
@@ -12,6 +11,7 @@ import PhotosPage from './components/PhotosPage/PhotosPage.jsx';
 import VideosPage from './components/VideosPage/VideosPage.jsx';
 import FilesPage from './components/FilesPage/FilesPage.jsx';
 import EventsPage from './components/EventsPage/EventsPage.jsx';
+import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 
 
 function App(props) {
@@ -21,7 +21,7 @@ function App(props) {
         <Header />
         <MainMenu />
         <div className="body">
-          <Route path='/home' render={() => <HomePage state={props.state} />} />
+          <Route path='/profile' render={() => <ProfilePageContainer state={props.state} />} />
           <Route path='/dialogs' render={() => <DialogsPage state={props.state} />} />
           <Route path='/news' component={NewsPage} />
           <Route path='/friends' render={() => <FriendsPageContainer />} />

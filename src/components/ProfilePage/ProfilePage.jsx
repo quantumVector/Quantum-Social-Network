@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './HomePage.module.css';
+import classes from './ProfilePage.module.css';
 import HomePageSidebar from '../HomePageSidebar/HomePageSidebar.jsx';
-import ProfileTop from '../ProfileTop/ProfileTop.jsx';
-import ProfileInfo from '../ProfileInfo/ProfileInfo.jsx';
+import ProfilePageTop from '../ProfilePageTop/ProfilePageTop.jsx';
+import ProfilePageInfo from '../ProfilePageInfo/ProfilePageInfo.jsx';
 import EventBlock from '../EventBlock/EventBlock.jsx';
 import FollowingBlock from '../FollowingBlock/FollowingBlock.jsx';
 import SubmitPostContainer from '../SubmitPost/SubmitPostContainer';
@@ -11,9 +11,9 @@ const HomePage = (props) => {
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>
-        <ProfileTop profile={props.state.profile} />
+        <ProfilePageTop profile={props.profile} />
         <div className={classes.narrowColumn}>
-          <ProfileInfo />
+          <ProfilePageInfo />
           <EventBlock events={props.state.events} />
           <FollowingBlock following={props.state.following} />
         </div>
