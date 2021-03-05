@@ -21,7 +21,7 @@ function App(props) {
         <Header />
         <MainMenu />
         <div className="body">
-          <Route path='/profile' render={() => <ProfilePageContainer state={props.state} />} />
+          <Route path='/profile/:userId?' render={() => <ProfilePageContainer state={props.state} />} />
           <Route path='/dialogs' render={() => <DialogsPage state={props.state} />} />
           <Route path='/news' component={NewsPage} />
           <Route path='/friends' render={() => <FriendsPageContainer />} />

@@ -3,10 +3,13 @@ import ProfilePage from './ProfilePage.jsx';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setUserProfile } from '../../redux/profileReducer';
+import { withRouter } from 'react-router-dom';
 
 class ProfilePageContainer extends React.Component {
   componentDidMount = () => {
-    axios.get(`http://backend-quantum-social-network/scripts/get_profile.php?id=3`).then(response => {
+    let userId = this.props.match.params.userId || 8;
+
+    axios.get(`http://backend-quantum-social-network/scripts/get_profile.php?id=${userId}`).then(response => {
       this.props.setUserProfile(response.data);
     });
   }
@@ -20,4 +23,6 @@ let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
 });
 
-export default connect(mapStateToProps, { setUserProfile })(ProfilePageContainer);
+let withUrlDataContainerComponent = withRouter(ProfilePageContainer);
+
+export default connect(mapStateToProps, { setUserProfile })(withUrlDataContainerComponent);
