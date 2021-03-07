@@ -80,3 +80,10 @@
 .block .arrow {
   width: 10px;
 }
+
+.block a {
+  text-decoration: none;
+  margin-left: 170px;
+  color: #cfd2e3;
+  cursor: pointer;
+}

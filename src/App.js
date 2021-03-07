@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header.jsx';
+import HeaderContainer from './components/Header/HeaderContainer.jsx';
 import MainMenu from './components/MainMenu/MainMenu.jsx';
 import DialogsPage from './components/DialogsPage/DialogsPage.jsx';
 import NewsPage from './components/NewsPage/NewsPage.jsx';
@@ -18,7 +18,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <Header />
+        <HeaderContainer />
         <MainMenu />
         <div className="body">
           <Route path='/profile/:userId?' render={() => <ProfilePageContainer state={props.state} />} />
