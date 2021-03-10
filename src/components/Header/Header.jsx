@@ -18,8 +18,8 @@ const Header = (props) => {
         <li className={classes.item}>
           <Search />
         </li>
-        {props.isAuth ?
-          <>
+        {props.isAuth
+          ? <>
             <li className={classes.item}>
               <NavLink to='/dialogs'>
                 <img src={msg} className={classes.msgIcon} alt='icon'></img>

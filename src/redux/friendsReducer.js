@@ -12,7 +12,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 
 const initialState = {
   friends: [],
-  pageSize: 4,
+  pageSize: 100,
   totalFriendsCount: 0,
   currentPage: 1,
   isFetching: false,

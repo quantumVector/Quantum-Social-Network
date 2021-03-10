@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './FriendsPage.module.css';
+import userPhoto from '../../assets/profiles/default-photo.png';
 
 const FriendsPage = (props) => {
   let pagesCount = Math.ceil(props.totalFriendsCount / props.pageSize);
@@ -24,7 +25,7 @@ const FriendsPage = (props) => {
           return (
             <div className={classes.friend} key={friend.id}>
               <NavLink to={'/profile/' + friend.id}>
-                <img src={friend.photo} className={classes.photo} alt="icon" />
+                <img src={friend.photos.small != null ? friend.photos.small : userPhoto} className={classes.photo} alt="icon" />
               </NavLink>
               <div className={classes.info}>
                 <NavLink to={'/profile/' + friend.id}>
