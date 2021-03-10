@@ -4,6 +4,7 @@ import photoGarrus from '../assets/profiles/Garrus-mini.png';
 import photoLiara from '../assets/profiles/Liara-mini.png';
 import photoMiranda from '../assets/profiles/Miranda-mini.png'; */
 
+const ADD_FRIEND = 'ADD-FRIEND';
 const UNFRIEND = 'UNFRIEND';
 const SET_FRIENDS = 'SET-FRIENDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
@@ -20,12 +21,23 @@ const initialState = {
 
 const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'ADD-FRIEND':
+      return {
+        ...state,
+        friends: state.friends.map(user => {
+          if (user.id === action.userId) {
+            return { ...user, followed: true }
+          };
+
+          return user;
+        })
+      };
     case 'UNFRIEND':
       return {
         ...state,
         friends: state.friends.map(user => {
           if (user.id === action.userId) {
-            return { ...user, inFriends: false }
+            return { ...user, followed: false }
           };
 
           return user;
@@ -41,6 +53,13 @@ const friendsReducer = (state = initialState, action) => {
       return { ...state, isFetching: action.isFetching };
     default:
       return state;
+  }
+}
+
+export const addFriend = (userId) => {
+  return {
+    type: ADD_FRIEND,
+    userId,
   }
 }
 

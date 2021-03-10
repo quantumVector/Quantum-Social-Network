@@ -43,6 +43,7 @@
 
 .friends .friend .actions .unfriend {
   color: #656678;
+  width: 70px;
   margin-top: 10px;
   margin-right: 10px;
   font-size: 14px;

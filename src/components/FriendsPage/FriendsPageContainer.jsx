@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import FriendsPage from './FriendsPage.jsx';
 import axios from 'axios';
 import {
+  addFriend,
   unfriend,
   setFriends,
   setCurrentPage,
@@ -20,7 +21,9 @@ class FriendsPageContainer extends React.Component {
       this.props.setTotalFriendsCount(response.data.totalCount)
     }); */
 
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+      withCredentials: true
+    }).then(response => {
       this.props.toggleIsFetching(false);
       this.props.setFriends(response.data.items);
       this.props.setTotalFriendsCount(response.data.totalCount)
@@ -35,7 +38,9 @@ class FriendsPageContainer extends React.Component {
       this.props.setFriends(response.data.friends);
     }); */
 
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+      withCredentials: true
+    }).then(response => {
       this.props.toggleIsFetching(false);
       this.props.setFriends(response.data.items);
     });
@@ -49,7 +54,8 @@ class FriendsPageContainer extends React.Component {
         currentPage={this.props.currentPage}
         onPageChanged={this.onPageChanged}
         friends={this.props.friends}
-        unfriends={this.props.unfriends} />
+        unfriend={this.props.unfriend}
+        addFriend={this.props.addFriend} />
     </>
   }
 }
@@ -65,6 +71,7 @@ const mapStateToProps = (state) => {
 }
 
 const ChatContainer = connect(mapStateToProps, {
+  addFriend,
   unfriend,
   setFriends,
   setCurrentPage,
