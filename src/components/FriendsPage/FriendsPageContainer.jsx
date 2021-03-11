@@ -11,38 +11,28 @@ import {
   toggleIsFetching
 } from '../../redux/friendsReducer';
 import Preloader from '../common/Preloader/Preloader.jsx';
+import { usersAPI } from '../../api/api.js';
+
+// http://backend-quantum-social-network/scripts/get_friends_list.php?page=${this.props.currentPage}&count=${this.props.pageSize} - Путь к нашему серверу
 
 class FriendsPageContainer extends React.Component {
   componentDidMount = () => {
     this.props.toggleIsFetching(true);
-    /* axios.get(`http://backend-quantum-social-network/scripts/get_friends_list.php?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-      this.props.toggleIsFetching(false);
-      this.props.setFriends(response.data.friends);
-      this.props.setTotalFriendsCount(response.data.totalCount)
-    }); */
 
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-      withCredentials: true
-    }).then(response => {
+    usersAPI.getFriends(this.props.currentPage, this.props.pageSize).then(data => {
       this.props.toggleIsFetching(false);
-      this.props.setFriends(response.data.items);
-      this.props.setTotalFriendsCount(response.data.totalCount)
+      this.props.setFriends(data.items);
+      this.props.setTotalFriendsCount(data.totalCount)
     });
   }
 
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.toggleIsFetching(true);
-    /* axios.get(`http://backend-quantum-social-network/scripts/get_friends_list.php?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
-      this.props.toggleIsFetching(false);
-      this.props.setFriends(response.data.friends);
-    }); */
 
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-      withCredentials: true
-    }).then(response => {
+    usersAPI.getFriends(this.props.currentPage, this.props.pageSize).then(data => {
       this.props.toggleIsFetching(false);
-      this.props.setFriends(response.data.items);
+      this.props.setFriends(data.items);
     });
   }
 

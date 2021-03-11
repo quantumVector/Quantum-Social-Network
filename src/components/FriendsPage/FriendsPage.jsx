@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './FriendsPage.module.css';
 import userPhoto from '../../assets/profiles/default-photo.png';
 import axios from 'axios';
+import { usersAPI } from '../../api/api.js';
 
 const FriendsPage = (props) => {
   let pagesCount = Math.ceil(props.totalFriendsCount / props.pageSize);
@@ -39,26 +40,16 @@ const FriendsPage = (props) => {
                 {friend.followed
                   ? <div className={classes.unfriend}
                     onClick={() => {
-                      axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${friend.id}`, {
-                        withCredentials: true,
-                        headers: {
-                          'API-KEY': 'f7646193-df45-418b-8fb7-c4c31e162488'
-                        }
-                      })
-                        .then(response => {
-                          if (response.data.resultCode === 0) props.unfriend(friend.id);
+                      usersAPI.unfriend(friend.id)
+                        .then(data => {
+                          if (data.resultCode === 0) props.unfriend(friend.id);
                         });
                     }}>Unfriend</div>
                   : <div className={classes.unfriend}
                     onClick={() => {
-                      axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${friend.id}`, {}, {
-                        withCredentials: true,
-                        headers: {
-                          'API-KEY': 'f7646193-df45-418b-8fb7-c4c31e162488'
-                        }
-                      })
-                        .then(response => {
-                          if (response.data.resultCode === 0) props.addFriend(friend.id)
+                      usersAPI.addFriend(friend.id)
+                        .then(data => {
+                          if (data.resultCode === 0) props.addFriend(friend.id)
                         });
                     }}>Add friend</div>}
               </div>

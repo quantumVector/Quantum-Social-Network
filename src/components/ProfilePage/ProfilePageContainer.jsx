@@ -4,17 +4,16 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { setUserProfile } from '../../redux/profileReducer';
 import { withRouter } from 'react-router-dom';
+import { profileAPI } from '../../api/api.js';
+
+// http://backend-quantum-social-network/scripts/get_profile.php?id=${userId} - Путь к нашему серверу
 
 class ProfilePageContainer extends React.Component {
   componentDidMount = () => {
     let userId = this.props.match.params.userId || 13527;
 
-    /* axios.get(`http://backend-quantum-social-network/scripts/get_profile.php?id=${userId}`).then(response => {
-      this.props.setUserProfile(response.data);
-    }); */
-
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then(response => {
-      this.props.setUserProfile(response.data);
+    profileAPI.setUserProfile(userId).then(data => {
+      this.props.setUserProfile(data);
     });
   }
 
