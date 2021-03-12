@@ -37,21 +37,33 @@ const FriendsPage = (props) => {
                 <div className={classes.message}>Write message</div>
               </div>
               <div className={classes.actions}>
+
                 {friend.followed
-                  ? <div className={classes.unfriend}
+                  ? <button className={classes.unfriend}
+                    disabled={props.followingInProgress.some(id => id === friend.id)}
                     onClick={() => {
+                      props.toggleFollowingProgress(true, friend.id);
+
                       usersAPI.unfriend(friend.id)
                         .then(data => {
                           if (data.resultCode === 0) props.unfriend(friend.id);
+
+                          props.toggleFollowingProgress(false, friend.id);
                         });
-                    }}>Unfriend</div>
-                  : <div className={classes.unfriend}
+                    }}>Unfriend</button>
+                  : <button className={classes.unfriend}
+                    disabled={props.followingInProgress.some(id => id === friend.id)}
                     onClick={() => {
+                      props.toggleFollowingProgress(true, friend.id);
+
                       usersAPI.addFriend(friend.id)
                         .then(data => {
-                          if (data.resultCode === 0) props.addFriend(friend.id)
+                          if (data.resultCode === 0) props.addFriend(friend.id);
+
+                          props.toggleFollowingProgress(false, friend.id);
                         });
-                    }}>Add friend</div>}
+                    }}>Add friend</button>}
+
               </div>
             </div>
           )
