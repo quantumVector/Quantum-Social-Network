@@ -6,8 +6,11 @@ import ProfilePageInfo from '../ProfilePageInfo/ProfilePageInfo.jsx';
 import EventBlock from '../EventBlock/EventBlock.jsx';
 import FollowingBlock from '../FollowingBlock/FollowingBlock.jsx';
 import SubmitPostContainer from '../SubmitPost/SubmitPostContainer';
+import { Redirect } from 'react-router';
 
 const HomePage = (props) => {
+  if (!props.isAuth) return <Redirect to={'/login'} />
+
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>

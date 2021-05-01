@@ -12,6 +12,7 @@ import VideosPage from './components/VideosPage/VideosPage.jsx';
 import FilesPage from './components/FilesPage/FilesPage.jsx';
 import EventsPage from './components/EventsPage/EventsPage.jsx';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
+import Login from './components/Login/Login';
 
 
 function App(props) {
@@ -30,6 +31,7 @@ function App(props) {
           <Route path='/videos' component={VideosPage} />
           <Route path='/files' component={FilesPage} />
           <Route path='/events' component={EventsPage} />
+          <Route path='/login' render={() => <Login />} />
         </div>
       </div>
     </BrowserRouter>

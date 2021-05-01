@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
   return {
     currentTextMessage: state.chat.currentTextMessage,
     messages,
+    isAuth: state.auth.isAuth,
   }
 }
 

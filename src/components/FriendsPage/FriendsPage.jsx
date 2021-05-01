@@ -1,8 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import classes from './FriendsPage.module.css';
 import userPhoto from '../../assets/profiles/default-photo.png';
-import { usersAPI } from '../../api/api.js';
 
 const FriendsPage = (props) => {
   let pagesCount = Math.ceil(props.totalFriendsCount / props.pageSize);
@@ -11,6 +10,8 @@ const FriendsPage = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+
+  if (!props.isAuth) return <Redirect to={'/login'} />
 
   return (
     <div className={classes.friends}>

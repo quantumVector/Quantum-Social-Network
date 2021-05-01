@@ -30,7 +30,8 @@ class FriendsPageContainer extends React.Component {
         friends={this.props.friends}
         unfriend={this.props.unfriend}
         addFriend={this.props.addFriend}
-        followingInProgress={this.props.followingInProgress} />
+        followingInProgress={this.props.followingInProgress}
+        isAuth={this.props.isAuth} />
     </>
   }
 }
@@ -43,6 +44,7 @@ const mapStateToProps = (state) => {
     currentPage: state.friendsPage.currentPage,
     isFetching: state.friendsPage.isFetching,
     followingInProgress: state.friendsPage.followingInProgress,
+    isAuth: state.auth.isAuth,
   }
 }
 
