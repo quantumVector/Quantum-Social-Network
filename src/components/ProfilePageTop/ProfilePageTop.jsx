@@ -9,7 +9,7 @@ const ProfileTop = (props) => {
   if(!props.profile) {
     return <Preloader />
   }
-debugger
+
   return (
     <div className={classes.block}>
       <div className={classes.head}>

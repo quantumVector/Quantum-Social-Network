@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './FriendsPage.module.css';
 import userPhoto from '../../assets/profiles/default-photo.png';
-import axios from 'axios';
 import { usersAPI } from '../../api/api.js';
 
 const FriendsPage = (props) => {
@@ -41,28 +40,10 @@ const FriendsPage = (props) => {
                 {friend.followed
                   ? <button className={classes.unfriend}
                     disabled={props.followingInProgress.some(id => id === friend.id)}
-                    onClick={() => {
-                      props.toggleFollowingProgress(true, friend.id);
-
-                      usersAPI.unfriend(friend.id)
-                        .then(data => {
-                          if (data.resultCode === 0) props.unfriend(friend.id);
-
-                          props.toggleFollowingProgress(false, friend.id);
-                        });
-                    }}>Unfriend</button>
+                    onClick={() => props.unfriend(friend.id)}>Unfriend</button>
                   : <button className={classes.unfriend}
                     disabled={props.followingInProgress.some(id => id === friend.id)}
-                    onClick={() => {
-                      props.toggleFollowingProgress(true, friend.id);
-
-                      usersAPI.addFriend(friend.id)
-                        .then(data => {
-                          if (data.resultCode === 0) props.addFriend(friend.id);
-
-                          props.toggleFollowingProgress(false, friend.id);
-                        });
-                    }}>Add friend</button>}
+                    onClick={() => props.addFriend(friend.id)}>Add friend</button>}
 
               </div>
             </div>

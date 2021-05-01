@@ -4,6 +4,8 @@ import photoGarrus from '../assets/profiles/Garrus-mini.png';
 import photoLiara from '../assets/profiles/Liara-mini.png';
 import photoMiranda from '../assets/profiles/Miranda-mini.png'; */
 
+import { usersAPI } from '../api/api';
+
 const ADD_FRIEND = 'ADD-FRIEND';
 const UNFRIEND = 'UNFRIEND';
 const SET_FRIENDS = 'SET-FRIENDS';
@@ -64,14 +66,14 @@ const friendsReducer = (state = initialState, action) => {
   }
 }
 
-export const addFriend = (userId) => {
+export const addFriendSuccess = (userId) => {
   return {
     type: ADD_FRIEND,
     userId,
   }
 }
 
-export const unfriend = (userId) => {
+export const unfriendSuccess = (userId) => {
   return {
     type: UNFRIEND,
     userId,
@@ -111,6 +113,46 @@ export const toggleFollowingProgress = (isFetching, userId) => {
     type: TOGGLE_IS_FOLLOWING_PROGRESS,
     isFetching,
     userId,
+  }
+}
+
+
+export const getFriends = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(setCurrentPage(currentPage));
+    dispatch(toggleIsFetching(true));
+
+    usersAPI.getFriends(currentPage, pageSize).then(data => {
+      dispatch(toggleIsFetching(false));
+      dispatch(setFriends(data.items));
+      dispatch(setTotalFriendsCount(data.totalCount));
+    });
+  }
+}
+
+export const addFriend = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+
+    usersAPI.addFriend(userId)
+      .then(data => {
+        if (data.resultCode === 0) dispatch(addFriendSuccess(userId));
+
+        dispatch(toggleFollowingProgress(false, userId));
+      });
+  }
+}
+
+export const unfriend = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+
+    usersAPI.unfriend(userId)
+      .then(data => {
+        if (data.resultCode === 0) dispatch(unfriendSuccess(userId));
+
+        dispatch(toggleFollowingProgress(false, userId));
+      });
   }
 }
 

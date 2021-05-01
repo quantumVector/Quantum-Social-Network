@@ -1,40 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FriendsPage from './FriendsPage.jsx';
-import axios from 'axios';
 import {
   addFriend,
   unfriend,
-  setFriends,
-  setCurrentPage,
-  setTotalFriendsCount,
-  toggleIsFetching,
-  toggleFollowingProgress
+  toggleFollowingProgress,
+  getFriends
 } from '../../redux/friendsReducer';
 import Preloader from '../common/Preloader/Preloader.jsx';
-import { usersAPI } from '../../api/api.js';
 
 // http://backend-quantum-social-network/scripts/get_friends_list.php?page=${this.props.currentPage}&count=${this.props.pageSize} - Путь к нашему серверу
 
 class FriendsPageContainer extends React.Component {
   componentDidMount = () => {
-    this.props.toggleIsFetching(true);
-
-    usersAPI.getFriends(this.props.currentPage, this.props.pageSize).then(data => {
-      this.props.toggleIsFetching(false);
-      this.props.setFriends(data.items);
-      this.props.setTotalFriendsCount(data.totalCount)
-    });
+    this.props.getFriends(this.props.currentPage, this.props.pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.setCurrentPage(pageNumber);
-    this.props.toggleIsFetching(true);
-
-    usersAPI.getFriends(this.props.currentPage, this.props.pageSize).then(data => {
-      this.props.toggleIsFetching(false);
-      this.props.setFriends(data.items);
-    });
+    this.props.getFriends(pageNumber, this.props.pageSize);
   }
 
   render = () => {
@@ -47,7 +30,6 @@ class FriendsPageContainer extends React.Component {
         friends={this.props.friends}
         unfriend={this.props.unfriend}
         addFriend={this.props.addFriend}
-        toggleFollowingProgress={this.props.toggleFollowingProgress}
         followingInProgress={this.props.followingInProgress} />
     </>
   }
@@ -67,11 +49,8 @@ const mapStateToProps = (state) => {
 const ChatContainer = connect(mapStateToProps, {
   addFriend,
   unfriend,
-  setFriends,
-  setCurrentPage,
-  setTotalFriendsCount,
-  toggleIsFetching,
-  toggleFollowingProgress
+  toggleFollowingProgress,
+  getFriends,
 })(FriendsPageContainer);
 
 export default ChatContainer;

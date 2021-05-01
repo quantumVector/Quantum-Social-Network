@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
 import profileReducer from './profileReducer';
 import postReducer from './postReducer';
 import friendsOnlineReducer from './friendsOnlineReducer';
@@ -8,6 +8,7 @@ import followingReducer from './followingReducer';
 import eventsReducer from './eventsReducer';
 import friendsReducer from './friendsReducer';
 import authReducer from './authReducer';
+import thunkMiddleware from 'redux-thunk';
 
 const reducers = combineReducers({
   profilePage: profileReducer,
@@ -21,6 +22,6 @@ const reducers = combineReducers({
   auth: authReducer,
 });
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 export default store;
