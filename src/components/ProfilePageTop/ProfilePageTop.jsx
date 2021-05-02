@@ -4,15 +4,17 @@ import ProfileBtn from '../ProfileBtn/ProfileBtn.jsx';
 import background from '../../assets/profile-head.png';
 import Preloader from '../common/Preloader/Preloader.jsx';
 import userPhoto from '../../assets/profiles/default-photo.png';
+import ProfileStatus from '../ProfileStatus/ProfileStatus';
 
 const ProfileTop = (props) => {
-  if(!props.profile) {
+  if (!props.profile) {
     return <Preloader />
   }
 
   return (
     <div className={classes.block}>
       <div className={classes.head}>
+        <ProfileStatus status={'Hello my friends'} />
         <img src={background} className={classes.background} alt='background' />
         <div className={classes.name}>{props.profile.fullName}</div>
         <div className={classes.photoBackground}></div>
