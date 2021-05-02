@@ -8,6 +8,7 @@ import {
   getFriends
 } from '../../redux/friendsReducer';
 import Preloader from '../common/Preloader/Preloader.jsx';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect.js';
 
 // http://backend-quantum-social-network/scripts/get_friends_list.php?page=${this.props.currentPage}&count=${this.props.pageSize} - Путь к нашему серверу
 
@@ -30,8 +31,7 @@ class FriendsPageContainer extends React.Component {
         friends={this.props.friends}
         unfriend={this.props.unfriend}
         addFriend={this.props.addFriend}
-        followingInProgress={this.props.followingInProgress}
-        isAuth={this.props.isAuth} />
+        followingInProgress={this.props.followingInProgress} />
     </>
   }
 }
@@ -44,15 +44,12 @@ const mapStateToProps = (state) => {
     currentPage: state.friendsPage.currentPage,
     isFetching: state.friendsPage.isFetching,
     followingInProgress: state.friendsPage.followingInProgress,
-    isAuth: state.auth.isAuth,
   }
 }
 
-const ChatContainer = connect(mapStateToProps, {
+export default withAuthRedirect(connect(mapStateToProps, {
   addFriend,
   unfriend,
   toggleFollowingProgress,
   getFriends,
-})(FriendsPageContainer);
-
-export default ChatContainer;
+})(FriendsPageContainer));

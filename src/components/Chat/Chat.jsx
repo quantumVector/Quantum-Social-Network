@@ -5,7 +5,6 @@ import attach from '../../assets/attach.png';
 import send from '../../assets/send-icon.png';
 import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
-import { Redirect } from 'react-router';
 
 const Chat = (props) => {
   const onSendMessage = () => {
@@ -15,8 +14,6 @@ const Chat = (props) => {
   const onChangeMessage = (e) => {
     props.updateMessage(e.target.value);
   }
-
-  if (!props.isAuth) return <Redirect to={'/login'} />
 
   return (
     <div className={classes.chatBody}>
