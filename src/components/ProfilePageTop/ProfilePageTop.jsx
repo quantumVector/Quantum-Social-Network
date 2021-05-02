@@ -14,7 +14,7 @@ const ProfileTop = (props) => {
   return (
     <div className={classes.block}>
       <div className={classes.head}>
-        <ProfileStatus status={'Hello my friends'} />
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
         <img src={background} className={classes.background} alt='background' />
         <div className={classes.name}>{props.profile.fullName}</div>
         <div className={classes.photoBackground}></div>

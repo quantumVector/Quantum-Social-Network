@@ -11,7 +11,9 @@ const HomePage = (props) => {
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>
-        <ProfilePageTop profile={props.profile} />
+        <ProfilePageTop profile={props.profile}
+          status={props.status}
+          updateStatus={props.updateStatus} />
         <div className={classes.narrowColumn}>
           <ProfilePageInfo />
           <EventBlock events={props.state.events} />
