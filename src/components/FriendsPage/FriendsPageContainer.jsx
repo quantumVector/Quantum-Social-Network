@@ -9,6 +9,7 @@ import {
 } from '../../redux/friendsReducer';
 import Preloader from '../common/Preloader/Preloader.jsx';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect.js';
+import { compose } from 'redux';
 
 // http://backend-quantum-social-network/scripts/get_friends_list.php?page=${this.props.currentPage}&count=${this.props.pageSize} - Путь к нашему серверу
 
@@ -47,9 +48,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default withAuthRedirect(connect(mapStateToProps, {
-  addFriend,
-  unfriend,
-  toggleFollowingProgress,
-  getFriends,
-})(FriendsPageContainer));
+export default compose(
+  connect(mapStateToProps, {
+    addFriend,
+    unfriend,
+    toggleFollowingProgress,
+    getFriends,
+  }),
+  withAuthRedirect,
+)(FriendsPageContainer);

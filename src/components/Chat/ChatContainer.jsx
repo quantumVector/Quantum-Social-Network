@@ -5,6 +5,7 @@ import MessageItemMy from '../MessageItemMy/MessageItemMy.jsx';
 import { addMessageActionCreator, updateCurrentTextMessageCreator } from '../../redux/chatReducer';
 import Chat from './Chat.jsx';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
   const messages = state.chat.AshleyWilliams.messages.map(msg => {
@@ -29,8 +30,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-let AuthRedirectComponent = withAuthRedirect(Chat);
-
-const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
-
-export default ChatContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect
+)(Chat);
