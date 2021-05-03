@@ -3,7 +3,7 @@ import ProfilePage from './ProfilePage.jsx';
 import { connect } from 'react-redux';
 import { getUserProfile, getStatus, updateStatus } from '../../redux/profileReducer';
 import { withRouter } from 'react-router-dom';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect.js';
 import { compose } from 'redux';
 
 // http://backend-quantum-social-network/scripts/get_profile.php?id=${userId} - Путь к нашему серверу
@@ -32,5 +32,5 @@ let mapStateToProps = (state) => ({
 export default compose(
   connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
   withRouter,
-  withAuthRedirect
+  withAuthRedirect,
 )(ProfilePageContainer);
