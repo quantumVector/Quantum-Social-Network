@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addPostActionCreator, updateSubmitTextCreator } from '../../redux/postReducer';
+import { addPostActionCreator } from '../../redux/postReducer';
 import SubmitPost from './SubmitPost.jsx';
 import Post from '../Post/Post.jsx';
 
@@ -11,18 +11,14 @@ const mapStateToProps = (state) => {
 
   return {
     profile: state.profilePage,
-    currentTextMessage: state.posts.currentTextPost,
     publishedPosts: posts,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addPost: () => {
-      dispatch(addPostActionCreator());
-    },
-    updateSubmitText: (text) => {
-      dispatch(updateSubmitTextCreator(text));
+    addPost: (postMessage) => {
+      dispatch(addPostActionCreator(postMessage));
     },
   }
 }

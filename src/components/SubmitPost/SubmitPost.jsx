@@ -4,14 +4,20 @@ import emoji from '../../assets/emoji-icon.png';
 import photoAndVideo from '../../assets/photo-video-post.png';
 import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
+import { Field, reduxForm } from 'redux-form';
+
+const PostForm = (props) => {
+  return <form className={classes.form} onSubmit={props.handleSubmit}>
+    <Field placeholder={'Write something...'} name={'postMessage'} component={'textarea'} />
+    <button>Share</button>
+  </form>
+}
+
+const PostReduxForm = reduxForm({ form: 'addNewPost' })(PostForm);
 
 const SubmitPost = (props) => {
-  const onAddPost = () => {
-    props.addPost();
-  }
-
-  const onUpdateSubmitText = (e) => {
-    props.updateSubmitText(e.target.value);
+  const addNewPost = (value) => {
+    props.addPost(value.postMessage);
   }
 
   return (
@@ -27,7 +33,7 @@ const SubmitPost = (props) => {
         </div>
         <div className={classes.postBox}>
           <img src={props.profile.photo} className={classes.userPhoto} alt='icon'></img>
-          <textarea placeholder='Write something...' value={props.currentTextMessage} onChange={onUpdateSubmitText}></textarea>
+          <PostReduxForm onSubmit={addNewPost} />
         </div>
         <div className={classes.mediaBox}>
           <div className={classes.media}>
@@ -44,10 +50,10 @@ const SubmitPost = (props) => {
               <div>Check in</div>
             </div>
           </div>
-          <div className={classes.submit} onClick={onAddPost}>Share</div>
+          <div className={classes.submit}>Share</div>
         </div>
       </div>
-      { props.publishedPosts }
+      { props.publishedPosts}
     </div>
   )
 }

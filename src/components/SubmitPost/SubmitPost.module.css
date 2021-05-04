@@ -115,3 +115,12 @@
   cursor: pointer;
   box-shadow:0 0 14px 2px#2783e6;;
 }
+
+.block .form {
+  display: flex;
+}
+
+.block .form button {
+  cursor: pointer;
+  height: 20px;
+}

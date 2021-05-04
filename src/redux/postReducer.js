@@ -3,7 +3,6 @@ import photo2Post1 from '../assets/postPhotos/photo2.jpg';
 import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_SUBMIT_TEXT = 'UPDATE-SUBMIT-TEXT';
 
 const initialState = {
   published: [
@@ -24,20 +23,9 @@ const initialState = {
       shared: '13',
     },
   ],
-
-  currentTextPost: '',
 };
 
 const postReducer = (state = initialState, action) => {
-  const newPost = {
-    time: '16 minutes ago',
-    text: state.currentTextPost,
-    content: [photo1Post1, photo2Post1, photo3Post1],
-    likes: '4',
-    comments: '1',
-    shared: '0',
-  }
-
   const stateCopy = {
     ...state,
     published: [ ...state.published ]
@@ -45,13 +33,16 @@ const postReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'ADD-POST': {
+      console.log(action.message)
       stateCopy.published = [...state.published];
-      stateCopy.published.unshift(newPost);
-      stateCopy.currentTextPost = '';
-      return stateCopy;
-    }
-    case 'UPDATE-SUBMIT-TEXT': {
-      stateCopy.currentTextPost = action.text;
+      stateCopy.published.unshift({
+        time: '16 minutes ago',
+        text: action.postMessage,
+        content: [photo1Post1, photo2Post1, photo3Post1],
+        likes: '4',
+        comments: '1',
+        shared: '0',
+      });
       return stateCopy;
     }
     default:
@@ -59,16 +50,10 @@ const postReducer = (state = initialState, action) => {
   }
 }
 
-export const addPostActionCreator = () => {
+export const addPostActionCreator = (postMessage) => {
   return {
     type: ADD_POST,
-  }
-}
-
-export const updateSubmitTextCreator = (text) => {
-  return {
-    type: UPDATE_SUBMIT_TEXT,
-    text,
+    postMessage
   }
 }
 
