@@ -9,6 +9,7 @@ import eventsReducer from './eventsReducer';
 import friendsReducer from './friendsReducer';
 import authReducer from './authReducer';
 import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
 
 const reducers = combineReducers({
   profilePage: profileReducer,
@@ -20,6 +21,7 @@ const reducers = combineReducers({
   chat: chatReducer,
   friendsPage: friendsReducer,
   auth: authReducer,
+  form: formReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
