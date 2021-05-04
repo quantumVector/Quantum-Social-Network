@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MessageItemFriend from '../MessageItemFriend/MessageItemFriend.jsx';
 import MessageItemMy from '../MessageItemMy/MessageItemMy.jsx';
-import { addMessageActionCreator, updateCurrentTextMessageCreator } from '../../redux/chatReducer';
+import { addMessageActionCreator } from '../../redux/chatReducer';
 import Chat from './Chat.jsx';
-import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
@@ -14,18 +14,14 @@ const mapStateToProps = (state) => {
   });
 
   return {
-    currentTextMessage: state.chat.currentTextMessage,
     messages,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendMessage: () => {
-      dispatch(addMessageActionCreator());
-    },
-    updateMessage: (text) => {
-      dispatch(updateCurrentTextMessageCreator(text));
+    sendMessage: (message) => {
+      dispatch(addMessageActionCreator(message));
     }
   }
 }

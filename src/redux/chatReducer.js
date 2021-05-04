@@ -2,21 +2,12 @@ import chatAshleyWilliams from './chat/AshleyWilliams';
 import photoShepard from '../assets/profiles/Shepard-mini.png';
 
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_CURRENT_TEXT_MESSAGE = 'UPDATE-CURRENT-TEXT-MESSAGE';
 
 const initialState = {
-  currentTextMessage: '',
   AshleyWilliams: chatAshleyWilliams,
 }
 
 const chatReducer = (state = initialState, action) => {
-  const newMessage = {
-    from: 'me',
-    photo: photoShepard,
-    time: '12:00 PM',
-    text: state.currentTextMessage,
-  }
-
   const stateCopy = {
     ...state,
     AshleyWilliams: {
@@ -27,27 +18,22 @@ const chatReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'ADD-MESSAGE':
-      stateCopy.AshleyWilliams.messages.push(newMessage);
-      stateCopy.currentTextMessage = '';
-      return stateCopy;
-    case 'UPDATE-CURRENT-TEXT-MESSAGE':
-      stateCopy.currentTextMessage = action.text;
+      stateCopy.AshleyWilliams.messages.push({
+        from: 'me',
+        photo: photoShepard,
+        time: '12:00 PM',
+        text: action.message,
+      });
       return stateCopy;
     default:
       return state;
   }
 }
 
-export const addMessageActionCreator = () => {
+export const addMessageActionCreator = (message) => {
   return {
     type: ADD_MESSAGE,
-  }
-}
-
-export const updateCurrentTextMessageCreator = (text) => {
-  return {
-    type: UPDATE_CURRENT_TEXT_MESSAGE,
-    text,
+    message
   }
 }
 
