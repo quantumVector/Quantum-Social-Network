@@ -5,10 +5,14 @@ import photoAndVideo from '../../assets/photo-video-post.png';
 import people from '../../assets/friends-post-icon.png';
 import checkIn from '../../assets/checkin-icon.png';
 import { Field, reduxForm } from 'redux-form';
+import { maxLengthCreator, required } from '../../utils/validators/validators';
+import { Textarea } from '../common/FormsControls/FormsControls';
+
+const maxLength10 = maxLengthCreator(10);
 
 const PostForm = (props) => {
   return <form className={classes.form} onSubmit={props.handleSubmit}>
-    <Field placeholder={'Write something...'} name={'postMessage'} component={'textarea'} />
+    <Field placeholder={'Write something...'} name={'postMessage'} component={Textarea} validate={[required, maxLength10]} />
     <button>Share</button>
   </form>
 }

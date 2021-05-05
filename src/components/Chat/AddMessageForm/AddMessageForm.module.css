@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  margin-right: 10px;
+}
+
+.form button{
+  cursor: pointer;
+}
+
+.input {
+  margin-right: 13px;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #cfd2e3;
+  background-color: #16192a;
+}

@@ -5,16 +5,7 @@ import attach from '../../assets/attach.png';
 import send from '../../assets/send-icon.png';
 import emoji from '../../assets/emoji-icon.png';
 import voice from '../../assets/voice-att.png';
-import { Field, reduxForm } from 'redux-form';
-
-const addMessageForm = (props) => {
-  return <form className={classes.form} onSubmit={props.handleSubmit}>
-    <Field className={classes.input} name={'message'} placeholder={'Write a message...'} component={'input'} />
-    <button>Send</button>
-  </form>
-}
-
-const AddMessageReduxForm = reduxForm({ form: 'chatAddMessage' })(addMessageForm);
+import AddMessageForm from './AddMessageForm/AddMessageForm';
 
 const Chat = (props) => {
   const addNewMessage = (value) => {
@@ -37,7 +28,7 @@ const Chat = (props) => {
       </div>
       <div className={classes.chatInput}>
         <img src={attach} alt='icon'></img>
-        <AddMessageReduxForm onSubmit={addNewMessage} />
+        <AddMessageForm onSubmit={addNewMessage} />
 
         <img src={send} alt='icon'></img>
         <img src={emoji} alt='icon'></img>
