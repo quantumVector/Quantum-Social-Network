@@ -38,6 +38,9 @@ const Header = (props) => {
                 <img src={arrow} className={classes.arrow} alt='icon'></img>
               </div>
             </li>
+            <li>
+              <button onClick={props.logout}>Log out</button>
+            </li>
           </>
           : <li className={classes.item}>
             <NavLink to={'/login'}>Login</NavLink>

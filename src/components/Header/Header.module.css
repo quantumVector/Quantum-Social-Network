@@ -87,3 +87,9 @@
   color: #cfd2e3;
   cursor: pointer;
 }
+
+.block button {
+  width: 70px;
+  margin: 20px;
+  cursor: pointer;
+}
