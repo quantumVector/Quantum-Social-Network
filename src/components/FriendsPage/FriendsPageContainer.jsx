@@ -5,10 +5,17 @@ import {
   addFriend,
   unfriend,
   toggleFollowingProgress,
-  getFriends
+  requestFriends
 } from '../../redux/friendsReducer';
 import Preloader from '../common/Preloader/Preloader.jsx';
 import { compose } from 'redux';
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getFriends, getIsFetching,
+  getPageSize,
+  getTotalFriendsCount
+} from '../../redux/friendsSelectors.js';
 
 // http://backend-quantum-social-network/scripts/get_friends_list.php?page=${this.props.currentPage}&count=${this.props.pageSize} - Путь к нашему серверу
 
@@ -36,7 +43,7 @@ class FriendsPageContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+/* const mapStateToProps = (state) => {
   return {
     friends: state.friendsPage.friends,
     pageSize: state.friendsPage.pageSize,
@@ -45,6 +52,17 @@ const mapStateToProps = (state) => {
     isFetching: state.friendsPage.isFetching,
     followingInProgress: state.friendsPage.followingInProgress,
   }
+} */
+
+const mapStateToProps = (state) => {
+  return {
+    friends: getFriends(state),
+    pageSize: getPageSize(state),
+    totalFriendsCount: getTotalFriendsCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state),
+  }
 }
 
 export default compose(
@@ -52,6 +70,6 @@ export default compose(
     addFriend,
     unfriend,
     toggleFollowingProgress,
-    getFriends,
+    getFriends: requestFriends,
   }),
 )(FriendsPageContainer);

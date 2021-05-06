@@ -117,12 +117,12 @@ export const toggleFollowingProgress = (isFetching, userId) => {
 }
 
 
-export const getFriends = (currentPage, pageSize) => {
+export const requestFriends = (page, pageSize) => {
   return (dispatch) => {
-    dispatch(setCurrentPage(currentPage));
+    dispatch(setCurrentPage(page));
     dispatch(toggleIsFetching(true));
 
-    usersAPI.getFriends(currentPage, pageSize).then(data => {
+    usersAPI.getFriends(page, pageSize).then(data => {
       dispatch(toggleIsFetching(false));
       dispatch(setFriends(data.items));
       dispatch(setTotalFriendsCount(data.totalCount));
