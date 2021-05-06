@@ -6,6 +6,10 @@ import './index.css';
 import store from './redux/reduxStore';
 import { Provider } from 'react-redux';
 
+setInterval(() => {
+  store.dispatch({type: "FAKE"})
+}, 1000);
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

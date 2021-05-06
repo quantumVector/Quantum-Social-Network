@@ -29,6 +29,9 @@ class FriendsPageContainer extends React.Component {
   }
 
   render = () => {
+
+    console.log("USERS");
+
     return <>
       {this.props.isFetching ? <Preloader /> : null}
       <FriendsPage totalFriendsCount={this.props.totalFriendsCount}
@@ -55,6 +58,9 @@ class FriendsPageContainer extends React.Component {
 } */
 
 const mapStateToProps = (state) => {
+
+  console.log('mapStateToProps USERS')
+
   return {
     friends: getFriends(state),
     pageSize: getPageSize(state),
