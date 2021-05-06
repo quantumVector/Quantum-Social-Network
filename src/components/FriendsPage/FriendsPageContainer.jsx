@@ -8,7 +8,6 @@ import {
   getFriends
 } from '../../redux/friendsReducer';
 import Preloader from '../common/Preloader/Preloader.jsx';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect.js';
 import { compose } from 'redux';
 
 // http://backend-quantum-social-network/scripts/get_friends_list.php?page=${this.props.currentPage}&count=${this.props.pageSize} - Путь к нашему серверу
@@ -55,5 +54,4 @@ export default compose(
     toggleFollowingProgress,
     getFriends,
   }),
-  withAuthRedirect,
 )(FriendsPageContainer);

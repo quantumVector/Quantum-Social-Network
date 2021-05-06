@@ -4,7 +4,6 @@ import MessageItemFriend from '../MessageItemFriend/MessageItemFriend.jsx';
 import MessageItemMy from '../MessageItemMy/MessageItemMy.jsx';
 import { addMessageActionCreator } from '../../redux/chatReducer';
 import Chat from './Chat.jsx';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
@@ -28,5 +27,4 @@ const mapDispatchToProps = (dispatch) => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withAuthRedirect
 )(Chat);

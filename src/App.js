@@ -13,47 +13,52 @@ import FilesPage from './components/FilesPage/FilesPage.jsx';
 import EventsPage from './components/EventsPage/EventsPage.jsx';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 import Login from './components/Login/Login';
+import { Component } from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { initializeApp } from './redux/appReducer';
+import Preloader from './components/common/Preloader/Preloader';
 
 
-function App(props) {
-  return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <HeaderContainer />
-        <MainMenu />
-        <div className="body">
-          <Route path='/profile/:userId?' render={() => <ProfilePageContainer state={props.state} />} />
-          <Route path='/dialogs' render={() => <DialogsPage state={props.state} />} />
-          <Route path='/news' component={NewsPage} />
-          <Route path='/friends' render={() => <FriendsPageContainer />} />
-          <Route path='/communities' component={CommunitiesPage} />
-          <Route path='/photos' component={PhotosPage} />
-          <Route path='/videos' component={VideosPage} />
-          <Route path='/files' component={FilesPage} />
-          <Route path='/events' component={EventsPage} />
-          <Route path='/login' render={() => <Login />} />
+class App extends Component {
+  componentDidMount() {
+    console.log(this.props)
+    this.props.initializeApp();
+  }
+
+  render() {
+    console.log(this.props)
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
+
+    return (
+      <BrowserRouter>
+        <div className="app-wrapper" >
+          <HeaderContainer />
+          <MainMenu />
+          <div className="body">
+            <Route path='/profile/:userId?' render={() => <ProfilePageContainer state={this.props.state} />} />
+            <Route path='/dialogs' render={() => <DialogsPage state={this.props.state} />} />
+            <Route path='/news' component={NewsPage} />
+            <Route path='/friends' render={() => <FriendsPageContainer />} />
+            <Route path='/communities' component={CommunitiesPage} />
+            <Route path='/photos' component={PhotosPage} />
+            <Route path='/videos' component={VideosPage} />
+            <Route path='/files' component={FilesPage} />
+            <Route path='/events' component={EventsPage} />
+            <Route path='/login' render={() => <Login />} />
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
-  );
-
-  /* return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <Header />
-        <MainMenu />
-        <div className="body">
-          <Route path='/news' component={NewsPage} />
-          <Route path='/friends' component={FriendsPage} />
-          <Route path='/communities' component={CommunitiesPage} />
-          <Route path='/photos' component={PhotosPage} />
-          <Route path='/videos' component={VideosPage} />
-          <Route path='/files' component={FilesPage} />
-          <Route path='/events' component={EventsPage} />
-        </div>
-      </div>
-    </BrowserRouter>
-  ); */
+      </BrowserRouter>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized,
+});
+
+export default compose(
+  connect(mapStateToProps, { initializeApp })
+)(App);
