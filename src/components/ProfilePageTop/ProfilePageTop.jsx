@@ -4,7 +4,7 @@ import ProfileBtn from '../ProfileBtn/ProfileBtn.jsx';
 import background from '../../assets/profile-head.png';
 import Preloader from '../common/Preloader/Preloader.jsx';
 import userPhoto from '../../assets/profiles/default-photo.png';
-import ProfileStatus from '../ProfileStatus/ProfileStatus';
+import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHook';
 
 const ProfileTop = (props) => {
   if (!props.profile) {
@@ -14,7 +14,7 @@ const ProfileTop = (props) => {
   return (
     <div className={classes.block}>
       <div className={classes.head}>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
         <img src={background} className={classes.background} alt='background' />
         <div className={classes.name}>{props.profile.fullName}</div>
         <div className={classes.photoBackground}></div>
