@@ -3,6 +3,7 @@ import photo2Post1 from '../assets/postPhotos/photo2.jpg';
 import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 
 const ADD_POST = 'ADD-POST';
+const DELETE_POST = 'DELETE_POST';
 
 const initialState = {
   published: [
@@ -13,6 +14,7 @@ const initialState = {
       likes: '87',
       comments: '20',
       shared: '13',
+      id: 1,
     },
     {
       time: '6 hours ago',
@@ -21,6 +23,7 @@ const initialState = {
       likes: '87',
       comments: '20',
       shared: '13',
+      id: 2,
     },
   ],
 };
@@ -28,12 +31,11 @@ const initialState = {
 const postReducer = (state = initialState, action) => {
   const stateCopy = {
     ...state,
-    published: [ ...state.published ]
+    published: [...state.published]
   };
 
   switch (action.type) {
     case 'ADD-POST': {
-      console.log(action.message)
       stateCopy.published = [...state.published];
       stateCopy.published.unshift({
         time: '16 minutes ago',
@@ -42,7 +44,13 @@ const postReducer = (state = initialState, action) => {
         likes: '4',
         comments: '1',
         shared: '0',
+        id: 3,
       });
+      return stateCopy;
+    }
+    case 'DELETE_POST': {
+      stateCopy.published = [...state.published
+        .filter(p => p.id != action.postId)];
       return stateCopy;
     }
     default:
@@ -56,5 +64,7 @@ export const addPostActionCreator = (postMessage) => {
     postMessage
   }
 }
+
+export const deletePost = (postId) => ({ type: DELETE_POST, postId })
 
 export default postReducer;
