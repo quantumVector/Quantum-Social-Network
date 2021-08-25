@@ -5,15 +5,18 @@ import App from './App';
 import './index.css';
 import store from './redux/reduxStore';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 setInterval(() => {
-  store.dispatch({type: "FAKE"})
+  store.dispatch({ type: "FAKE" })
 }, 1000);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App state={store.getState()} />
+      <BrowserRouter>
+        <App state={store.getState()} />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>, document.getElementById('root')
 );
