@@ -1,7 +1,7 @@
 import chatAshleyWilliams from './chat/AshleyWilliams';
 import photoShepard from '../assets/profiles/Shepard-mini.png';
 
-const ADD_MESSAGE = 'ADD-MESSAGE';
+const ADD_MESSAGE = 'quantum_network/chat/ADD_MESSAGE';
 
 const initialState = {
   AshleyWilliams: chatAshleyWilliams,
@@ -17,7 +17,7 @@ const chatReducer = (state = initialState, action) => {
   }
 
   switch (action.type) {
-    case 'ADD-MESSAGE':
+    case 'quantum_network/chat/ADD_MESSAGE':
       stateCopy.AshleyWilliams.messages.push({
         from: 'me',
         photo: photoShepard,

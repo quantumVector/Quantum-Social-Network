@@ -7,22 +7,22 @@ import EventBlock from '../EventBlock/EventBlock.jsx';
 import FollowingBlock from '../FollowingBlock/FollowingBlock.jsx';
 import SubmitPostContainer from '../SubmitPost/SubmitPostContainer';
 
-const HomePage = (props) => {
+const HomePage = ({ profile, status, updateStatus, state }) => {
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>
-        <ProfilePageTop profile={props.profile}
-          status={props.status}
-          updateStatus={props.updateStatus} />
+        <ProfilePageTop profile={profile}
+          status={status}
+          updateStatus={updateStatus} />
         <div className={classes.narrowColumn}>
           <ProfilePageInfo />
-          <EventBlock events={props.state.events} />
-          <FollowingBlock following={props.state.following} />
+          <EventBlock events={state.events} />
+          <FollowingBlock following={state.following} />
         </div>
         <SubmitPostContainer />
       </div>
       <div className={classes.rightSidebar}>
-        <HomePageSidebar state={props.state} />
+        <HomePageSidebar state={state} />
       </div>
     </div>
   )

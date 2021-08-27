@@ -7,14 +7,14 @@ import settings from '../../assets/settings-icon.png';
 import edite from '../../assets/edite-icon.png';
 import add from '../../assets/add-icon.png';
 
-const HomePageSidebar = (props) => {
-  const stories = props.state.users.map( user => {
+const HomePageSidebar = ({ state }) => {
+  const stories = state.users.map(user => {
     if (user.story) return <StoriesPreview profilePhoto={user.photo} name={user.name} time={user.storyCreated} />
 
     return false;
   });
 
-  const friends = props.state.users.map( user => {
+  const friends = state.users.map(user => {
     return <FriendsOnline profilePhoto={user.photo} name={user.name} />
   });
 
@@ -23,27 +23,27 @@ const HomePageSidebar = (props) => {
       <div className={classes.stories}>
         <div className={classes.title}>STORIES</div>
         <div className={classes.items}>
-          { stories }
+          {stories}
         </div>
       </div>
 
       <div className={classes.friends}>
-        <div className={classes.title}>{props.state.friendsOnline} FRIENDS ONLINE</div>
+        <div className={classes.title}>{state.friendsOnline} FRIENDS ONLINE</div>
         <div className={classes.items}>
-          { friends }
+          {friends}
         </div>
       </div>
 
       <div className={classes.footer}>
         <Search />
         <div className={classes.item}>
-          <img src={settings} className={classes.settings} alt="icon"/>
+          <img src={settings} className={classes.settings} alt="icon" />
         </div>
         <div className={classes.item}>
-          <img src={edite} className={classes.edite} alt="icon"/>
+          <img src={edite} className={classes.edite} alt="icon" />
         </div>
         <div className={classes.item}>
-          <img src={add} className={classes.add} alt="icon"/>
+          <img src={add} className={classes.add} alt="icon" />
         </div>
       </div>
     </div>

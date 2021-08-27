@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './ProfileBtn.module.css';
 
-const ProfileTop = (props) => {
+const ProfileTop = ({ label, count }) => {
   return (
     <div className={classes.item}>
-      <div className={classes.label}>{props.label}</div>
-      <div className={classes.count}>{props.count}</div>
+      <div className={classes.label}>{label}</div>
+      <div className={classes.count}>{count}</div>
     </div>
   )
 }

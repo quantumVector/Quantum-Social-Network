@@ -8,7 +8,7 @@ import arrow from '../../assets/arrow-icon.png';
 import unread from '../../assets/unread-icon.png';
 import { NavLink } from 'react-router-dom';
 
-const Header = (props) => {
+const Header = ({ isAuth, logout }) => {
   return (
     <div className={classes.block}>
       <ul className={classes.inner}>
@@ -18,7 +18,7 @@ const Header = (props) => {
         <li className={classes.item}>
           <Search />
         </li>
-        {props.isAuth
+        {isAuth
           ? <>
             <li className={classes.item}>
               <NavLink to='/dialogs'>
@@ -39,7 +39,7 @@ const Header = (props) => {
               </div>
             </li>
             <li>
-              <button onClick={props.logout}>Log out</button>
+              <button onClick={logout}>Log out</button>
             </li>
           </>
           : <li className={classes.item}>

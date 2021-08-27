@@ -6,19 +6,19 @@ import Preloader from '../common/Preloader/Preloader.jsx';
 import userPhoto from '../../assets/profiles/default-photo.png';
 import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHook';
 
-const ProfileTop = (props) => {
-  if (!props.profile) {
+const ProfileTop = ({ profile, status, updateStatus }) => {
+  if (!profile) {
     return <Preloader />
   }
 
   return (
     <div className={classes.block}>
       <div className={classes.head}>
-        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
         <img src={background} className={classes.background} alt='background' />
-        <div className={classes.name}>{props.profile.fullName}</div>
+        <div className={classes.name}>{profile.fullName}</div>
         <div className={classes.photoBackground}></div>
-        <img src={props.profile.photos.small != null ? props.profile.photos.small : userPhoto} className={classes.photo} alt='icon' />
+        <img src={profile.photos.small != null ? profile.photos.small : userPhoto} className={classes.photo} alt='icon' />
       </div>
       <div className={classes.btns}>
         <div className={classes.container}>

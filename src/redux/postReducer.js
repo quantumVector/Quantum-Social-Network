@@ -2,8 +2,8 @@ import photo1Post1 from '../assets/postPhotos/photo1.jpg';
 import photo2Post1 from '../assets/postPhotos/photo2.jpg';
 import photo3Post1 from '../assets/postPhotos/photo3.jpg';
 
-const ADD_POST = 'ADD-POST';
-const DELETE_POST = 'DELETE_POST';
+const ADD_POST = 'quantum_network/post/ADD_POST';
+const DELETE_POST = 'quantum_network/post/DELETE_POST';
 
 const initialState = {
   published: [
@@ -35,7 +35,7 @@ const postReducer = (state = initialState, action) => {
   };
 
   switch (action.type) {
-    case 'ADD-POST': {
+    case 'quantum_network/post/ADD_POST': {
       stateCopy.published = [...state.published];
       stateCopy.published.unshift({
         time: '16 minutes ago',
@@ -48,7 +48,7 @@ const postReducer = (state = initialState, action) => {
       });
       return stateCopy;
     }
-    case 'DELETE_POST': {
+    case 'quantum_network/post/DELETE_POST': {
       stateCopy.published = [...state.published
         .filter(p => p.id != action.postId)];
       return stateCopy;

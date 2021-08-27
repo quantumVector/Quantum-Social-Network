@@ -1,6 +1,6 @@
 import { getAuthUserData } from './authReducer'
 
-const INITIALIZED_SUCCESS = 'INITIALIZED-SUCCESS';
+const INITIALIZED_SUCCESS = 'quantum_network/app/INITIALIZED_SUCCESS';
 
 const initialState = {
   initialized: false,
@@ -8,7 +8,7 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'INITIALIZED-SUCCESS':
+    case 'quantum_network/app/INITIALIZED_SUCCESS':
       return {
         ...state,
         initialized: true,
@@ -23,7 +23,6 @@ export const initializedSuccess = () => (
 );
 
 export const initializeApp = () => (dispatch) => {
-  console.log('here');
   const promise = dispatch(getAuthUserData());
 
   Promise.all([promise])

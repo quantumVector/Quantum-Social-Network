@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer.jsx';
@@ -13,21 +15,16 @@ import FilesPage from './components/FilesPage/FilesPage.jsx';
 import EventsPage from './components/EventsPage/EventsPage.jsx';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 import Login from './components/Login/Login';
-import { Component } from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
 
 
 class App extends Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.initializeApp();
   }
 
   render() {
-    console.log(this.props)
     if (!this.props.initialized) {
       return <Preloader />
     }

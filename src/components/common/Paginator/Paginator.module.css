@@ -1,0 +1,14 @@
+.selectPage {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #cfd2e3;
+}
+.selectPage span {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.selectPage .selected {
+  color: #3b6fa8;
+}

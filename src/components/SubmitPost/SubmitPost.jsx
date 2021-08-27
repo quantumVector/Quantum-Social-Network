@@ -10,8 +10,8 @@ import { Textarea } from '../common/FormsControls/FormsControls';
 
 const maxLength10 = maxLengthCreator(10);
 
-const PostForm = (props) => {
-  return <form className={classes.form} onSubmit={props.handleSubmit}>
+const PostForm = ({ handleSubmit }) => {
+  return <form className={classes.form} onSubmit={handleSubmit}>
     <Field placeholder={'Write something...'} name={'postMessage'} component={Textarea} validate={[required, maxLength10]} />
     <button>Share</button>
   </form>
@@ -19,9 +19,9 @@ const PostForm = (props) => {
 
 const PostReduxForm = reduxForm({ form: 'addNewPost' })(PostForm);
 
-const SubmitPost = (props) => {
+const SubmitPost = ({ addPost, profile, publishedPosts }) => {
   const addNewPost = (value) => {
-    props.addPost(value.postMessage);
+    addPost(value.postMessage);
   }
 
   return (
@@ -36,7 +36,7 @@ const SubmitPost = (props) => {
           <img src={emoji} className={classes.emoji} alt='icon'></img>
         </div>
         <div className={classes.postBox}>
-          <img src={props.profile.photo} className={classes.userPhoto} alt='icon'></img>
+          <img src={profile.photo} className={classes.userPhoto} alt='icon'></img>
           <PostReduxForm onSubmit={addNewPost} />
         </div>
         <div className={classes.mediaBox}>
@@ -57,7 +57,7 @@ const SubmitPost = (props) => {
           <div className={classes.submit}>Share</div>
         </div>
       </div>
-      { props.publishedPosts}
+      {publishedPosts}
     </div>
   )
 }

@@ -5,14 +5,15 @@ import photoLiara from '../assets/profiles/Liara-mini.png';
 import photoMiranda from '../assets/profiles/Miranda-mini.png'; */
 
 import { usersAPI } from '../api/api';
+import { updateObjectInArray } from '../utils/object-helpers';
 
-const ADD_FRIEND = 'ADD-FRIEND';
-const UNFRIEND = 'UNFRIEND';
-const SET_FRIENDS = 'SET-FRIENDS';
-const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
-const SET_TOTAL_FRIENDS_COUNT = 'SET-TOTAL-FRIENDS-COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
-const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING-PROGRESS';
+const ADD_FRIEND = 'quantum_network/friends/ADD_FRIEND';
+const UNFRIEND = 'quantum_network/friends/UNFRIEND';
+const SET_FRIENDS = 'quantum_network/friends/SET_FRIENDS';
+const SET_CURRENT_PAGE = 'quantum_network/friends/SET_CURRENT_PAGE';
+const SET_TOTAL_FRIENDS_COUNT = 'quantum_network/friends/SET_TOTAL_FRIENDS_COUNT';
+const TOGGLE_IS_FETCHING = 'quantum_network/friends/TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'quantum_network/friends/TOGGLE_IS_FOLLOWING_PROGRESS';
 
 const initialState = {
   friends: [],
@@ -26,42 +27,25 @@ const initialState = {
 
 const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FAKE":
+    case 'quantum_network/friends/ADD_FRIEND':
       return {
         ...state,
-        fake: state.fake + 1
+        friends: updateObjectInArray(state.friends, action.userId, 'id', { followed: true })
       };
-    case 'ADD-FRIEND':
+    case 'quantum_network/friends/UNFRIEND':
       return {
         ...state,
-        friends: state.friends.map(user => {
-          if (user.id === action.userId) {
-            return { ...user, followed: true }
-          };
-
-          return user;
-        })
+        friends: updateObjectInArray(state.friends, action.userId, 'id', { followed: false })
       };
-    case 'UNFRIEND':
-      return {
-        ...state,
-        friends: state.friends.map(user => {
-          if (user.id === action.userId) {
-            return { ...user, followed: false }
-          };
-
-          return user;
-        })
-      };
-    case 'SET-FRIENDS':
+    case 'quantum_network/friends/SET_FRIENDS':
       return { ...state, friends: action.friends };
-    case 'SET-CURRENT-PAGE':
+    case 'quantum_network/friends/SET_CURRENT_PAGE':
       return { ...state, currentPage: action.pageNumber };
-    case 'SET-TOTAL-FRIENDS-COUNT':
+    case 'quantum_network/friends/SET_TOTAL_FRIENDS_COUNT':
       return { ...state, totalFriendsCount: action.totalCount };
-    case 'TOGGLE-IS-FETCHING':
+    case 'quantum_network/friends/TOGGLE_IS_FETCHING':
       return { ...state, isFetching: action.isFetching };
-    case 'TOGGLE-IS-FOLLOWING-PROGRESS':
+    case 'quantum_network/friends/TOGGLE_IS_FOLLOWING_PROGRESS':
       return {
         ...state, followingInProgress: action.isFetching
           ? [...state.followingInProgress, action.userId]
@@ -124,42 +108,37 @@ export const toggleFollowingProgress = (isFetching, userId) => {
 
 
 export const requestFriends = (page, pageSize) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(setCurrentPage(page));
     dispatch(toggleIsFetching(true));
 
-    usersAPI.getFriends(page, pageSize).then(data => {
-      dispatch(toggleIsFetching(false));
-      dispatch(setFriends(data.items));
-      dispatch(setTotalFriendsCount(data.totalCount));
-    });
+    const data = await usersAPI.getFriends(page, pageSize);
+
+    dispatch(toggleIsFetching(false));
+    dispatch(setFriends(data.items));
+    dispatch(setTotalFriendsCount(data.totalCount));
   }
 }
 
 export const addFriend = (userId) => {
-  return (dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId));
-
-    usersAPI.addFriend(userId)
-      .then(data => {
-        if (data.resultCode === 0) dispatch(addFriendSuccess(userId));
-
-        dispatch(toggleFollowingProgress(false, userId));
-      });
+  return async (dispatch) => {
+    addFriendUnfriendFlow(dispatch, userId, usersAPI.addFriend.bind(userId), addFriendSuccess);
   }
 }
 
 export const unfriend = (userId) => {
-  return (dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId));
-
-    usersAPI.unfriend(userId)
-      .then(data => {
-        if (data.resultCode === 0) dispatch(unfriendSuccess(userId));
-
-        dispatch(toggleFollowingProgress(false, userId));
-      });
+  return async (dispatch) => {
+    addFriendUnfriendFlow(dispatch, userId, usersAPI.unfriend.bind(userId), unfriendSuccess);
   }
+}
+
+const addFriendUnfriendFlow = async (dispatch, userId, apiMethod, actionCreator) => {
+  dispatch(toggleFollowingProgress(true, userId));
+
+  const data = await apiMethod(userId);
+
+  if (data.resultCode === 0) dispatch(actionCreator(userId));
+  dispatch(toggleFollowingProgress(false, userId));
 }
 
 export default friendsReducer;

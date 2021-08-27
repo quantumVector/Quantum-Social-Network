@@ -1,13 +1,13 @@
 import React from 'react';
 import classes from './StoriesPreview.module.css';
 
-const StoriesPreview = (props) => {
+const StoriesPreview = ({ profilePhoto, name, time }) => {
   return (
     <div className={classes.item}>
-      <img src={props.profilePhoto} className={classes.storiesIcon} alt='icon'></img>
+      <img src={profilePhoto} className={classes.storiesIcon} alt='icon'></img>
       <div className={classes.personInfo}>
-        <div className={classes.name}>{props.name}</div>
-        <div className={classes.time}>{props.time}</div>
+        <div className={classes.name}>{name}</div>
+        <div className={classes.time}>{time}</div>
       </div>
     </div>
   );

@@ -4,12 +4,13 @@ import Dialogs from '../Dialogs/Dialogs.jsx';
 import ChatContainer from '../Chat/ChatContainer';
 import UserInfo from '../UserInfo/UserInfo';
 
-const DialogsPage = (props) => {
+const DialogsPage = ({ state }) => {
+  debugger
   return (
     <div className={classes.dialogsPage}>
-      <Dialogs users={props.state.users} />
+      <Dialogs users={state.users} />
       <ChatContainer />
-      <UserInfo chat={props.state.chat} />
+      <UserInfo chat={state.chat} />
     </div>
   )
 }

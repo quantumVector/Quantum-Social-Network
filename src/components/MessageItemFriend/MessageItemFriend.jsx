@@ -1,14 +1,14 @@
 import React from 'react';
 import classes from './MessageItemFriend.module.css';
 
-const MessageItemFriend = (props) => {
+const MessageItemFriend = ({ photo, msg, time }) => {
   return (
     <div className={classes.item}>
       <div className={classes.info}>
-        <img src={props.photo} alt='icon'></img>
-        <div className={classes.msg}>{props.msg}</div>
+        <img src={photo} alt='icon'></img>
+        <div className={classes.msg}>{msg}</div>
       </div>
-      <div className={classes.time}>{props.time}</div>
+      <div className={classes.time}>{time}</div>
     </div>
   )
 }

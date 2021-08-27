@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './EventsPage.module.css';
 
 const EventsPage = () => {
-  return(
+  return (
     <div className={classes.news}>Events</div>
   )
 }

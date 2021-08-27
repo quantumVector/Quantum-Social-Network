@@ -21,17 +21,17 @@ import {
 
 class FriendsPageContainer extends React.Component {
   componentDidMount = () => {
-    this.props.getFriends(this.props.currentPage, this.props.pageSize);
+    const { currentPage, pageSize } = this.props;
+
+    this.props.getFriends(currentPage, pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.getFriends(pageNumber, this.props.pageSize);
+    const { pageSize } = this.props;
+    this.props.getFriends(pageNumber, pageSize);
   }
 
   render = () => {
-
-    console.log("USERS");
-
     return <>
       {this.props.isFetching ? <Preloader /> : null}
       <FriendsPage totalFriendsCount={this.props.totalFriendsCount}
@@ -46,21 +46,7 @@ class FriendsPageContainer extends React.Component {
   }
 }
 
-/* const mapStateToProps = (state) => {
-  return {
-    friends: state.friendsPage.friends,
-    pageSize: state.friendsPage.pageSize,
-    totalFriendsCount: state.friendsPage.totalFriendsCount,
-    currentPage: state.friendsPage.currentPage,
-    isFetching: state.friendsPage.isFetching,
-    followingInProgress: state.friendsPage.followingInProgress,
-  }
-} */
-
 const mapStateToProps = (state) => {
-
-  console.log('mapStateToProps USERS')
-
   return {
     friends: getFriends(state),
     pageSize: getPageSize(state),

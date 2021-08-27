@@ -2,14 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './MenuItem.module.css';
 
-const MenuItem = (props) => {
+const MenuItem = ({ href, icon, label }) => {
   return (
-    <li className={classes.item} href={props.href}>
-      <NavLink to={props.href} activeClassName={classes.active}>
+    <li className={classes.item} href={href}>
+      <NavLink to={href} activeClassName={classes.active}>
         <div className={classes.iconCont}>
-          <img src={props.icon} className={classes.icon} alt='icon'></img>
+          <img src={icon} className={classes.icon} alt='icon'></img>
         </div>
-        <div className={classes.text}>{props.label}</div>
+        <div className={classes.text}>{label}</div>
       </NavLink>
     </li>
   )

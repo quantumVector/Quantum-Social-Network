@@ -4,8 +4,8 @@ import Following from '../Following/Following';
 import actions from '../../assets/post-actions-icon.png';
 
 
-const FollowingBlock = (props) => {
-  const following = props.following.map( f => {
+const FollowingBlock = ({ following }) => {
+  const followingItems = following.map(f => {
     return <Following photo={f.photo} name={f.name} />
   });
   return (
@@ -15,7 +15,7 @@ const FollowingBlock = (props) => {
         <img src={actions} className={classes.actions} alt="icon"></img>
       </div>
       <div className={classes.items}>
-        { following }
+        {followingItems}
       </div>
     </div >
   )
