@@ -5,7 +5,6 @@ import ChatContainer from '../Chat/ChatContainer';
 import UserInfo from '../UserInfo/UserInfo';
 
 const DialogsPage = ({ state }) => {
-  debugger
   return (
     <div className={classes.dialogsPage}>
       <Dialogs users={state.users} />
