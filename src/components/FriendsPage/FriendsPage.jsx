@@ -8,7 +8,7 @@ const FriendsPage = ({ currentPage, totalFriendsCount, pageSize, onPageChanged, 
     <div className={classes.friends}>
       <Paginator currentPage={currentPage}
         onPageChanged={onPageChanged}
-        totalFriendsCount={totalFriendsCount}
+        totalItemsCount={totalFriendsCount}
         pageSize={pageSize} />
       {
         friends.map(friend => <Friend friend={friend}

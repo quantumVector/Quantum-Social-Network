@@ -17,7 +17,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'quantum_network/friends/TOGGLE_IS_FOLLOWIN
 
 const initialState = {
   friends: [],
-  pageSize: 100,
+  pageSize: 6,
   totalFriendsCount: 0,
   currentPage: 1,
   isFetching: false,
