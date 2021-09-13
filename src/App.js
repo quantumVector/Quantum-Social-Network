@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { compose } from 'redux';
 import { Provider, connect } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import store from './redux/reduxStore';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer.jsx';
 import MainMenu from './components/MainMenu/MainMenu.jsx';
-import DialogsPage from './components/DialogsPage/DialogsPage.jsx';
-import NewsPage from './components/NewsPage/NewsPage.jsx';
-import FriendsPageContainer from './components/FriendsPage/FriendsPageContainer.jsx';
-import CommunitiesPage from './components/CommunitiesPage/CommunitiesPage.jsx';
-import PhotosPage from './components/PhotosPage/PhotosPage.jsx';
-import VideosPage from './components/VideosPage/VideosPage.jsx';
-import FilesPage from './components/FilesPage/FilesPage.jsx';
-import EventsPage from './components/EventsPage/EventsPage.jsx';
-import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
-import Login from './components/Login/Login';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
+
+const ProfilePageContainer = lazy(() => import('./components/ProfilePage/ProfilePageContainer'));
+const DialogsPage = lazy(() => import('./components/DialogsPage/DialogsPage.jsx'));
+const NewsPage = lazy(() => import('./components/NewsPage/NewsPage.jsx'));
+const FriendsPageContainer = lazy(() => import('./components/FriendsPage/FriendsPageContainer.jsx'));
+const CommunitiesPage = lazy(() => import('./components/CommunitiesPage/CommunitiesPage.jsx'));
+const PhotosPage = lazy(() => import('./components/PhotosPage/PhotosPage.jsx'));
+const VideosPage = lazy(() => import('./components/VideosPage/VideosPage.jsx'));
+const FilesPage = lazy(() => import('./components/FilesPage/FilesPage.jsx'));
+const EventsPage = lazy(() => import('./components/EventsPage/EventsPage.jsx'));
+const Login = lazy(() => import('./components/Login/Login'));
 
 class App extends Component {
   componentDidMount() {
@@ -34,16 +35,20 @@ class App extends Component {
         <HeaderContainer />
         <MainMenu />
         <div className="body">
-          <Route path='/profile/:userId?' render={() => <ProfilePageContainer state={this.props.state} />} />
-          <Route path='/dialogs' render={() => <DialogsPage state={this.props.state} />} />
-          <Route path='/news' component={NewsPage} />
-          <Route path='/friends' render={() => <FriendsPageContainer />} />
-          <Route path='/communities' component={CommunitiesPage} />
-          <Route path='/photos' component={PhotosPage} />
-          <Route path='/videos' component={VideosPage} />
-          <Route path='/files' component={FilesPage} />
-          <Route path='/events' component={EventsPage} />
-          <Route path='/login' render={() => <Login />} />
+          <Suspense fallback={<div>Загрузка...</div>}>
+            <Switch>
+              <Route path='/profile/:userId?' render={() => <ProfilePageContainer state={this.props.state} />} />
+              <Route path='/dialogs' render={() => <DialogsPage state={this.props.state} />} />
+              <Route path='/news' component={NewsPage} />
+              <Route path='/friends' render={() => <FriendsPageContainer />} />
+              <Route path='/communities' component={CommunitiesPage} />
+              <Route path='/photos' component={PhotosPage} />
+              <Route path='/videos' component={VideosPage} />
+              <Route path='/files' component={FilesPage} />
+              <Route path='/events' component={EventsPage} />
+              <Route path='/login' render={() => <Login />} />
+            </Switch>
+          </Suspense>
         </div>
       </div>
     )
