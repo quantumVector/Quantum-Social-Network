@@ -6,10 +6,16 @@ import Preloader from '../common/Preloader/Preloader.jsx';
 import userPhoto from '../../assets/profiles/default-photo.png';
 import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHook';
 
-const ProfileTop = ({ profile, status, updateStatus }) => {
+const ProfileTop = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
   if (!profile) {
     return <Preloader />
   }
+
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+        savePhoto(e.target.files[0]);
+    }
+}
 
   return (
     <div className={classes.block}>
@@ -18,7 +24,8 @@ const ProfileTop = ({ profile, status, updateStatus }) => {
         <img src={background} className={classes.background} alt='background' />
         <div className={classes.name}>{profile.fullName}</div>
         <div className={classes.photoBackground}></div>
-        <img src={profile.photos.small != null ? profile.photos.small : userPhoto} className={classes.photo} alt='icon' />
+        <img src={profile.photos.small || userPhoto} className={classes.photo} alt='icon' />
+        { isOwner && <input type={"file"} onChange={onMainPhotoSelected} className={classes.btnFile}/>}
       </div>
       <div className={classes.btns}>
         <div className={classes.container}>

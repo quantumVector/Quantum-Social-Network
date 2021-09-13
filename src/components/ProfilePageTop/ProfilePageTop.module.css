@@ -41,7 +41,7 @@
   position: absolute;
   left: 15px;
   bottom: -50px;
-  width: 135px;
+  width: 145px;
   z-index: 22;
 }
 
@@ -58,4 +58,13 @@
 .block .btns .container {
   display: flex;
   padding-left: 190px;
+}
+
+.btnFile {
+  position: absolute;
+  z-index: 23;
+  left: 15px;
+  top: 15px;
+  color: #cfd2e3;
+  cursor: pointer;
 }

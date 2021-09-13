@@ -7,11 +7,14 @@ import EventBlock from '../EventBlock/EventBlock.jsx';
 import FollowingBlock from '../FollowingBlock/FollowingBlock.jsx';
 import SubmitPostContainer from '../SubmitPost/SubmitPostContainer';
 
-const HomePage = ({ profile, status, updateStatus, state }) => {
+const HomePage = ({ profile, status, updateStatus, savePhoto, isOwner, state }) => {
   return (
     <div className={classes.homePage}>
       <div className={classes.scrollBlock}>
-        <ProfilePageTop profile={profile}
+        <ProfilePageTop
+          savePhoto={savePhoto}
+          isOwner={isOwner}
+          profile={profile}
           status={status}
           updateStatus={updateStatus} />
         <div className={classes.narrowColumn}>
