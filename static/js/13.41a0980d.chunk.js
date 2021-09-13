@@ -1,0 +1,2 @@
+(this["webpackJsonpquantum-social-network"]=this["webpackJsonpquantum-social-network"]||[]).push([[13],{374:function(n,t,e){},380:function(n,t,e){"use strict";e.r(t);var a=e(0),s=e.n(a),u=e(374),c=e.n(u);t.default=function(){return s.a.createElement("div",{className:c.a.news},"Videos")}}}]);
+//# sourceMappingURL=13.41a0980d.chunk.js.map

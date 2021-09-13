@@ -1,0 +1,2 @@
+(this["webpackJsonpquantum-social-network"]=this["webpackJsonpquantum-social-network"]||[]).push([[10],{375:function(n,t,e){},381:function(n,t,e){"use strict";e.r(t);var a=e(0),s=e.n(a),u=e(375),c=e.n(u);t.default=function(){return s.a.createElement("div",{className:c.a.news},"Files")}}}]);
+//# sourceMappingURL=10.81842252.chunk.js.map
