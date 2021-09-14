@@ -5,8 +5,8 @@ import SubmitPost from './SubmitPost.jsx';
 import Post from '../Post/Post.jsx';
 
 const mapStateToProps = (state) => {
-  const posts = state.posts.published.map( post => {
-    return <Post profile={state.profilePage} post={post} />
+  const posts = state.posts.published.map(post => {
+    return <Post profile={state.profilePage} post={post} key={post.id} />
   });
 
   return {

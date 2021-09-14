@@ -1,5 +1,6 @@
 import photoShepard from '../assets/profiles/Shepard-mini.png';
 import { profileAPI } from '../api/api';
+import { stopSubmit } from 'redux-form';
 
 const SET_USER_PROFILE = 'quantum_network/profile/SET_USER_PROFILE';
 const SET_STATUS = 'quantum_network/profile/SET_STATUS';
@@ -66,7 +67,19 @@ export const savePhoto = (file) => async (dispatch) => {
   const response = await profileAPI.savePhoto(file);
 
   if (response.data.resultCode === 0) {
-      dispatch(savePhotoSuccess(response.data.data.photos));
+    dispatch(savePhotoSuccess(response.data.data.photos));
+  }
+}
+
+export const saveProfileInfo = (profileInfo) => async (dispatch, getState) => {
+  const userId = getState().auth.userId;
+  const response = await profileAPI.saveProfileInfo(profileInfo);
+
+  if (response.data.resultCode === 0) {
+      dispatch(getUserProfile(userId));
+  } else {
+      dispatch(stopSubmit("edit-profile-info", {_error: response.data.messages[0] }));
+      return Promise.reject(response.data.messages[0]);
   }
 }
 

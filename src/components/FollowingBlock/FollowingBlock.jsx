@@ -6,7 +6,7 @@ import actions from '../../assets/post-actions-icon.png';
 
 const FollowingBlock = ({ following }) => {
   const followingItems = following.map(f => {
-    return <Following photo={f.photo} name={f.name} />
+    return <Following photo={f.photo} name={f.name} key={f.name} />
   });
   return (
     <div className={classes.block}>

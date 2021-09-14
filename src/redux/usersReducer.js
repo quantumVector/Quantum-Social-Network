@@ -15,60 +15,70 @@ const initialState = [
     photo: photoAnderson,
     story: false,
     storyCreated: null,
+    id: 1
   },
   {
     name: 'Ashley Williams',
     photo: photoAshley,
     story: true,
     storyCreated: '29 minutes ago',
+    id: 2
   },
   {
     name: 'Garrus Vakarian',
     photo: photoGarrus,
     story: false,
     storyCreated: null,
+    id: 3
   },
   {
     name: 'James Vega',
     photo: photoJames,
     story: true,
     storyCreated: '3 hours ago',
+    id: 4
   },
   {
     name: "Liara T'Soni",
     photo: photoLiara,
     story: true,
     storyCreated: '9 hours ago',
+    id: 5
   },
   {
     name: 'Miranda Lawson',
     photo: photoMiranda,
     story: false,
     storyCreated: null,
+    id: 6
   },
   {
     name: 'Miranda Lawson',
     photo: photoMordin,
     story: true,
     storyCreated: '18 hours ago',
+    id: 7
   },
   {
     name: "Tali'Zorah",
     photo: photoTali,
     story: false,
     storyCreated: null,
+    id: 8
   },
   {
     name: 'Thane Krios',
     photo: photoThane,
     story: false,
     storyCreated: null,
+    id: 9
   },
   {
     name: 'Urdnot Wrex',
     photo: photoUrdnot,
     story: false,
     storyCreated: null,
+    id: 10
   },
 ];
 

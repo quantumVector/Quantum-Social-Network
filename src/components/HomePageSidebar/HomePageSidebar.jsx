@@ -9,13 +9,13 @@ import add from '../../assets/add-icon.png';
 
 const HomePageSidebar = ({ state }) => {
   const stories = state.users.map(user => {
-    if (user.story) return <StoriesPreview profilePhoto={user.photo} name={user.name} time={user.storyCreated} />
+    if (user.story) return <StoriesPreview profilePhoto={user.photo} name={user.name} time={user.storyCreated} key={user.name} />
 
     return false;
   });
 
   const friends = state.users.map(user => {
-    return <FriendsOnline profilePhoto={user.photo} name={user.name} />
+    return <FriendsOnline profilePhoto={user.photo} name={user.name} key={user.id} />
   });
 
   return (
