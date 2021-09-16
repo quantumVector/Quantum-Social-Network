@@ -1,7 +1,7 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { compose } from 'redux';
 import { Provider, connect } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import store from './redux/reduxStore';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer.jsx';
@@ -23,6 +23,8 @@ const Login = lazy(() => import('./components/Login/Login'));
 class App extends Component {
   componentDidMount() {
     this.props.initializeApp();
+
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
   render() {
@@ -37,6 +39,7 @@ class App extends Component {
         <div className="body">
           <Suspense fallback={<div>Загрузка...</div>}>
             <Switch>
+              <Route exact path='/' render={() => <Redirect to={"/profile"} />} />
               <Route path='/profile/:userId?' render={() => <ProfilePageContainer state={this.props.state} />} />
               <Route path='/dialogs' render={() => <DialogsPage state={this.props.state} />} />
               <Route path='/news' component={NewsPage} />
@@ -47,6 +50,7 @@ class App extends Component {
               <Route path='/files' component={FilesPage} />
               <Route path='/events' component={EventsPage} />
               <Route path='/login' render={() => <Login />} />
+              <Route path='*' render={() => <div>404 NOT FOUND</div>} />
             </Switch>
           </Suspense>
         </div>
